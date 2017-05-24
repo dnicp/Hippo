@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HippoPooling</string>
+    <string name="category_task">Task</string>
+    <string name="category_dashboard">Dashboard</string>
+    <string name="category_schedule">Schedule</string>
+</resources>
