@@ -1,4 +1,4 @@
-package com.example.android.hippo.viewholder;
+package hippo.app.android;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,9 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.android.hippo.R;
-import com.example.android.hippo.models.Post;
-import com.example.android.hippo.models.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,6 +16,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import hippo.app.android.BaseActivity;
+import hippo.app.android.R;
+import hippo.app.android.models.Post;
+import hippo.app.android.models.User;
+
 
 public class NewPostActivity extends BaseActivity {
 

@@ -1,12 +1,12 @@
-package com.example.android.hippo.viewholder;
+package hippo.app.android;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.android.hippo.R;
-import com.example.android.hippo.models.Post;
+import hippo.app.android.R;
+import hippo.app.android.models.Post;
 
 
 public class PostViewHolder extends RecyclerView.ViewHolder {

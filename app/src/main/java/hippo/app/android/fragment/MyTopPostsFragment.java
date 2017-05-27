@@ -1,4 +1,4 @@
-package com.example.android.hippo.fragment;
+package hippo.app.android.fragment;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;

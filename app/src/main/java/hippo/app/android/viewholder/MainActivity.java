@@ -1,4 +1,4 @@
-package com.example.android.hippo.viewholder;
+package hippo.app.android;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,15 +10,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.android.hippo.R;
-import com.example.android.hippo.fragment.MyPostsFragment;
-import com.example.android.hippo.fragment.MyTopPostsFragment;
-import com.example.android.hippo.fragment.RecentPostsFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
+import hippo.app.android.fragment.MyPostsFragment;
+import hippo.app.android.fragment.MyTopPostsFragment;
+import hippo.app.android.fragment.RecentPostsFragment;
+import hippo.app.android.BaseActivity;
+import hippo.app.android.NewPostActivity;
+import hippo.app.android.SignInActivity;
 
 
-public class MainActivity extends com.example.android.hippo.viewholder.BaseActivity {
+public class MainActivity extends BaseActivity {
 
     private static final String TAG = "MainActivity";
 

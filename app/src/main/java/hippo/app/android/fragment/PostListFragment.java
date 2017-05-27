@@ -1,4 +1,4 @@
-package com.example.android.hippo.fragment;
+package hippo.app.android.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.hippo.R;
-import com.example.android.hippo.models.Post;
-import com.example.android.hippo.viewholder.PostDetailActivity;
-import com.example.android.hippo.viewholder.PostViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +19,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
+
+import hippo.app.android.R;
+import hippo.app.android.models.Post;
+import hippo.app.android.PostDetailActivity;
+import hippo.app.android.PostViewHolder;
 
 public abstract class PostListFragment extends Fragment {
 

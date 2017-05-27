@@ -8,50 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:125142624718:android:5b8a16487d9f32ac",
-        "android_client_info": {
-          "package_name": "com.example.android.flavor"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "125142624718-sj6jft63ib2n2rgu38vfq54cjskrl554.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.android.flavor",
-            "certificate_hash": "9fffc5dfb9f823ee06af0c9ab7358e50e2196c0c"
-          }
-        },
-        {
-          "client_id": "125142624718-br0lh4ip03mhap0egtmqnb0b7e6ctn8s.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDK8BHfVZoEboUvO-23Od_-mYzjhmOTsNw"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "125142624718-br0lh4ip03mhap0egtmqnb0b7e6ctn8s.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:125142624718:android:596b464d434d0a90",
         "android_client_info": {
           "package_name": "com.example.android.viewpager"
@@ -96,17 +52,17 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:125142624718:android:27216b7e913254d9",
+        "mobilesdk_app_id": "1:125142624718:android:bb31a93e7e6b919f",
         "android_client_info": {
-          "package_name": "com.example.android.hippo"
+          "package_name": "hippo.app.android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "125142624718-b6dd8dhd5amq74ss5fpkbjlsjblbnvuo.apps.googleusercontent.com",
+          "client_id": "125142624718-i026854aqs680um4mkehebmo3foa5rc4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.android.hippo",
+            "package_name": "hippo.app.android",
             "certificate_hash": "c3b7fec20d2886faab47dc09b7fde01661d7581c"
           }
         },

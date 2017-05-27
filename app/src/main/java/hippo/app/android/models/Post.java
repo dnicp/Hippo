@@ -1,4 +1,4 @@
-package com.example.android.hippo.models;
+package hippo.app.android.models;
 
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;

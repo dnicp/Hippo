@@ -1,4 +1,4 @@
-package com.example.android.hippo.viewholder;
+package hippo.app.android;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.android.hippo.R;
-import com.example.android.hippo.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -20,7 +18,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignInActivity extends com.example.android.hippo.viewholder.BaseActivity implements View.OnClickListener {
+import hippo.app.android.BaseActivity;
+import hippo.app.android.MainActivity;
+import hippo.app.android.R;
+import hippo.app.android.models.User;
+
+public class SignInActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "SignInActivity";
 
@@ -122,7 +125,7 @@ public class SignInActivity extends com.example.android.hippo.viewholder.BaseAct
         writeNewUser(user.getUid(), username, user.getEmail());
 
         // Go to MainActivity
-        startActivity(new Intent(SignInActivity.this, com.example.android.hippo.viewholder.MainActivity.class));
+        startActivity(new Intent(SignInActivity.this, MainActivity.class));
         finish();
     }
 

@@ -1,4 +1,4 @@
-package com.example.android.hippo.viewholder;
+package hippo.app.android;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
