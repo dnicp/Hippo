@@ -26,26 +26,44 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
         android:hint="Task Description"
-        android:maxLines="1" />
+        android:maxLines="3" />
 
+<RadioGroup
+    android:id="@+id/radioPooling"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/task_des">
 
     <RadioButton
-        android:id="@+id/radioButtonPooling"
+        android:id="@+id/poolingYes"
+        android:tag="pooling"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/task_des"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:text="RadioButtonPooling" />
+        android:text="I need someone to join before proceeding" />
 
+    <RadioButton
+        android:id="@+id/poolingNo"
+        android:tag="no pooling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:text="I will go ahead even no one joins me"
+        android:checked="true"/>
+
+</RadioGroup>
 
     <Button
         android:id="@+id/showDatePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/radioButtonPooling"
+        android:layout_below="@id/radioPooling"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"

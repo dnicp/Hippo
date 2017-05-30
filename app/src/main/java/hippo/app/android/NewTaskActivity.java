@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -32,6 +34,9 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
 
     private EditText mTaskDes;
     private EditText mTaskLoc;
+    private RadioGroup mPoolingGroup;
+    private RadioButton mPoolingRadioButton;
+    private String mPoolingValue;
     private FloatingActionButton mSubmitButton;
 
     @Override
@@ -45,6 +50,14 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
 
         mTaskDes = (EditText) findViewById(R.id.task_des);
         mTaskLoc = (EditText) findViewById(R.id.task_loc);
+
+        // start of radio stuff
+        mPoolingGroup = (RadioGroup) findViewById(R.id.radioPooling);
+
+        mPoolingValue = "something";
+
+        // end of radio stuff
+
         mSubmitButton = (FloatingActionButton) findViewById(R.id.fab_submit_task);
 
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +72,15 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
         final String description = mTaskDes.getText().toString();
         final String location = mTaskLoc.getText().toString();
 
+
+        // not happy with this part radio group start
+        int selectedId = mPoolingGroup.getCheckedRadioButtonId();
+        mPoolingRadioButton = (RadioButton) findViewById(selectedId);
+        final String pooling = mPoolingRadioButton.getTag().toString();
+
+        // something going on with radio group finish
+
+
         // Description is required
         if (TextUtils.isEmpty(description)) {
             mTaskDes.setError(REQUIRED);
@@ -67,6 +89,12 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
 
         // Location is required
         if (TextUtils.isEmpty(location)) {
+            mTaskLoc.setError(REQUIRED);
+            return;
+        }
+
+        // Pooling info is required
+        if (TextUtils.isEmpty(pooling)) {
             mTaskLoc.setError(REQUIRED);
             return;
         }
@@ -93,7 +121,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new post
-                            writeNewPost(userId, user.username, description, location);
+                            writeNewPost(userId, user.username, description, location,pooling);
                         }
 
                         // Finish this Activity, back to the stream
@@ -117,6 +145,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
     private void setEditingEnabled(boolean enabled) {
         mTaskDes.setEnabled(enabled);
         mTaskLoc.setEnabled(enabled);
+        mPoolingGroup.setEnabled(enabled);
         if (enabled) {
             mSubmitButton.setVisibility(View.VISIBLE);
         } else {
@@ -125,11 +154,11 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
     }
 
     // [START write_fan_out]
-    private void writeNewPost(String userId, String username, String description, String location) {
+    private void writeNewPost(String userId, String username, String description, String location, String pooling) {
         // Create new task at /user-tasks/$userid/$taskid and at
         // /tasks/$taskid simultaneously
         String key = mDatabase.child("tasks").push().getKey();
-        Task task = new Task(userId, username, description, location);
+        Task task = new Task(userId, username, description, location, pooling);
         Map<String, Object> postValues = task.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();

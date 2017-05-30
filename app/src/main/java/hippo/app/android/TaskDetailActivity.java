@@ -40,8 +40,9 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
     private CommentAdapter mAdapter;
 
     private TextView mAuthorView;
-    private TextView mTitleView;
-    private TextView mBodyView;
+    private TextView mDesView;
+    private TextView mLocView;
+    private TextView mPoolingView;
     private EditText mCommentField;
     private Button mCommentButton;
     private RecyclerView mCommentsRecycler;
@@ -65,8 +66,10 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
 
         // Initialize Views
         mAuthorView = (TextView) findViewById(R.id.task_author);
-        mTitleView = (TextView) findViewById(R.id.task_des);
-        mBodyView = (TextView) findViewById(R.id.task_loc);
+        mDesView = (TextView) findViewById(R.id.task_des);
+        mLocView = (TextView) findViewById(R.id.task_loc);
+        mPoolingView = (TextView) findViewById(R.id.task_pooling);
+
         mCommentField = (EditText) findViewById(R.id.field_comment_text);
         mCommentButton = (Button) findViewById(R.id.button_task_comment);
         mCommentsRecycler = (RecyclerView) findViewById(R.id.recycler_comments);
@@ -89,8 +92,9 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
                 Task task = dataSnapshot.getValue(Task.class);
                 // [START_EXCLUDE]
                 mAuthorView.setText(task.author);
-                mTitleView.setText(task.description);
-                mBodyView.setText(task.location);
+                mDesView.setText(task.description);
+                mLocView.setText(task.location);
+                mPoolingView.setText(task.pooling);
                 // [END_EXCLUDE]
             }
 
