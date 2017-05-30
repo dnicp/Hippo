@@ -1,10 +1,12 @@
 package hippo.app.android;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,12 +17,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import hippo.app.android.fragment.MyPostsFragment;
 import hippo.app.android.fragment.MyTopPostsFragment;
 import hippo.app.android.fragment.RecentPostsFragment;
-import hippo.app.android.BaseActivity;
-import hippo.app.android.NewPostActivity;
-import hippo.app.android.SignInActivity;
 
+/** Main thread + dot dot menu items */
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends hippo.app.android.BaseActivity {
 
     private static final String TAG = "MainActivity";
 
@@ -31,6 +31,12 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // start adjust buttom bar color
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimary));
+        }
+        // end adjust buttom bar color
 
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
@@ -67,7 +73,7 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, NewPostActivity.class));
+                startActivity(new Intent(MainActivity.this, hippo.app.android.NewPostActivity.class));
             }
         });
     }
@@ -85,7 +91,7 @@ public class MainActivity extends BaseActivity {
         int i = item.getItemId();
         if (i == R.id.action_logout) {
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, SignInActivity.class));
+            startActivity(new Intent(this, hippo.app.android.SignInActivity.class));
             finish();
             return true;
         } else {

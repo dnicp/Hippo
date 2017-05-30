@@ -22,6 +22,7 @@ import hippo.app.android.R;
 import hippo.app.android.models.Post;
 import hippo.app.android.models.User;
 
+/**  */
 
 public class NewPostActivity extends BaseActivity {
 
