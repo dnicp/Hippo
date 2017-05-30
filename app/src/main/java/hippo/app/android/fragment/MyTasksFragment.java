@@ -3,14 +3,14 @@ package hippo.app.android.fragment;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
-public class MyPostsFragment extends PostListFragment {
+public class MyTasksFragment extends TaskListFragment {
 
-    public MyPostsFragment() {}
+    public MyTasksFragment() {}
 
     @Override
     public Query getQuery(DatabaseReference databaseReference) {
-        // All my posts
-        return databaseReference.child("user-posts")
+        // All my tasks
+        return databaseReference.child("user-tasks")
                 .child(getUid());
     }
 }

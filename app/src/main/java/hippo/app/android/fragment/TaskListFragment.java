@@ -21,29 +21,29 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
 
 import hippo.app.android.R;
-import hippo.app.android.models.Post;
-import hippo.app.android.PostDetailActivity;
-import hippo.app.android.PostViewHolder;
+import hippo.app.android.TaskDetailActivity;
+import hippo.app.android.models.Task;
+import hippo.app.android.TaskViewHolder;
 
-public abstract class PostListFragment extends Fragment {
+public abstract class TaskListFragment extends Fragment {
 
-    private static final String TAG = "PostListFragment";
+    private static final String TAG = "TaskListFragment";
 
     // [START define_database_reference]
     private DatabaseReference mDatabase;
     // [END define_database_reference]
 
-    private FirebaseRecyclerAdapter<Post, PostViewHolder> mAdapter;
+    private FirebaseRecyclerAdapter<Task, TaskViewHolder> mAdapter;
     private RecyclerView mRecycler;
     private LinearLayoutManager mManager;
 
-    public PostListFragment() {}
+    public TaskListFragment() {}
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.fragment_all_posts, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_all_tasks, container, false);
 
         // [START create_database_reference]
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -66,43 +66,43 @@ public abstract class PostListFragment extends Fragment {
         mRecycler.setLayoutManager(mManager);
 
         // Set up FirebaseRecyclerAdapter with the Query
-        Query postsQuery = getQuery(mDatabase);
-        mAdapter = new FirebaseRecyclerAdapter<Post, PostViewHolder>(Post.class, R.layout.item_post,
-                PostViewHolder.class, postsQuery) {
+        Query taskQuery = getQuery(mDatabase);
+        mAdapter = new FirebaseRecyclerAdapter<Task, TaskViewHolder>(Task.class, R.layout.item_task,
+                TaskViewHolder.class, taskQuery) {
             @Override
-            protected void populateViewHolder(final PostViewHolder viewHolder, final Post model, final int position) {
-                final DatabaseReference postRef = getRef(position);
+            protected void populateViewHolder(final TaskViewHolder viewHolder, final Task model, final int position) {
+                final DatabaseReference taskRef = getRef(position);
 
-                // Set click listener for the whole post view
-                final String postKey = postRef.getKey();
+                // Set click listener for the whole task view
+                final String taskKey = taskRef.getKey();
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // Launch PostDetailActivity
-                        Intent intent = new Intent(getActivity(), PostDetailActivity.class);
-                        intent.putExtra(PostDetailActivity.EXTRA_POST_KEY, postKey);
+                        // Launch TaskDetailActivity
+                        Intent intent = new Intent(getActivity(), TaskDetailActivity.class);
+                        intent.putExtra(TaskDetailActivity.EXTRA_TASK_KEY, taskKey);
                         startActivity(intent);
                     }
                 });
 
-                // Determine if the current user has liked this post and set UI accordingly
+                // Determine if the current user has liked this task and set UI accordingly
                 if (model.stars.containsKey(getUid())) {
                     viewHolder.starView.setImageResource(R.drawable.ic_toggle_star_24);
                 } else {
                     viewHolder.starView.setImageResource(R.drawable.ic_toggle_star_outline_24);
                 }
 
-                // Bind Post to ViewHolder, setting OnClickListener for the star button
-                viewHolder.bindToPost(model, new View.OnClickListener() {
+                // Bind Task to ViewHolder, setting OnClickListener for the star button
+                viewHolder.bindToTask(model, new View.OnClickListener() {
                     @Override
                     public void onClick(View starView) {
-                        // Need to write to both places the post is stored
-                        DatabaseReference globalPostRef = mDatabase.child("posts").child(postRef.getKey());
-                        DatabaseReference userPostRef = mDatabase.child("user-posts").child(model.uid).child(postRef.getKey());
+                        // Need to write to both places the task is stored
+                        DatabaseReference globalTaskRef = mDatabase.child("tasks").child(taskRef.getKey());
+                        DatabaseReference userTaskRef = mDatabase.child("user-tasks").child(model.uid).child(taskRef.getKey());
 
                         // Run two transactions
-                        onStarClicked(globalPostRef);
-                        onStarClicked(userPostRef);
+                        onStarClicked(globalTaskRef);
+                        onStarClicked(userTaskRef);
                     }
                 });
             }
@@ -110,22 +110,22 @@ public abstract class PostListFragment extends Fragment {
         mRecycler.setAdapter(mAdapter);
     }
 
-    // [START post_stars_transaction]
-    private void onStarClicked(DatabaseReference postRef) {
-        postRef.runTransaction(new Transaction.Handler() {
+    // [START task_stars_transaction]
+    private void onStarClicked(DatabaseReference taskRef) {
+        taskRef.runTransaction(new Transaction.Handler() {
             @Override
             public Transaction.Result doTransaction(MutableData mutableData) {
-                Post p = mutableData.getValue(Post.class);
+                Task p = mutableData.getValue(Task.class);
                 if (p == null) {
                     return Transaction.success(mutableData);
                 }
 
                 if (p.stars.containsKey(getUid())) {
-                    // Unstar the post and remove self from stars
+                    // Unstar the task and remove self from stars
                     p.starCount = p.starCount - 1;
                     p.stars.remove(getUid());
                 } else {
-                    // Star the post and add self to stars
+                    // Star the task and add self to stars
                     p.starCount = p.starCount + 1;
                     p.stars.put(getUid(), true);
                 }
@@ -139,11 +139,11 @@ public abstract class PostListFragment extends Fragment {
             public void onComplete(DatabaseError databaseError, boolean b,
                                    DataSnapshot dataSnapshot) {
                 // Transaction completed
-                Log.d(TAG, "postTransaction:onComplete:" + databaseError);
+                Log.d(TAG, "taskTransaction:onComplete:" + databaseError);
             }
         });
     }
-    // [END post_stars_transaction]
+    // [END task_stars_transaction]
 
     @Override
     public void onDestroy() {

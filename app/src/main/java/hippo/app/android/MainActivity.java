@@ -13,9 +13,9 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import hippo.app.android.fragment.MyPostsFragment;
-import hippo.app.android.fragment.MyTopPostsFragment;
-import hippo.app.android.fragment.RecentPostsFragment;
+import hippo.app.android.fragment.MyTasksFragment;
+import hippo.app.android.fragment.MyTopTasksFragment;
+import hippo.app.android.fragment.RecentTasksFragment;
 
 /** Main thread + dot dot menu items */
 
@@ -35,19 +35,19 @@ public class MainActivity extends hippo.app.android.BaseActivity {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimary));
         }
-        // end adjust buttom bar color
+        // end adjust bottom bar color
 
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[] {
-                    new RecentPostsFragment(),
-                    new MyPostsFragment(),
-                    new MyTopPostsFragment(),
+                    new RecentTasksFragment(),
+                    new MyTasksFragment(),
+                    new MyTopTasksFragment(),
             };
             private final String[] mFragmentNames = new String[] {
                     getString(R.string.heading_recent),
-                    getString(R.string.heading_my_posts),
-                    getString(R.string.heading_my_top_posts)
+                    getString(R.string.heading_my_tasks),
+                    getString(R.string.heading_my_top_tasks)
             };
             @Override
             public Fragment getItem(int position) {
@@ -69,7 +69,7 @@ public class MainActivity extends hippo.app.android.BaseActivity {
         tabLayout.setupWithViewPager(mViewPager);
 
         // Button launches NewTaskActivity
-        findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.fab_new_task).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, hippo.app.android.NewTaskActivity.class));

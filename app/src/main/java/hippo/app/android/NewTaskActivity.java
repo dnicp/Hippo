@@ -17,12 +17,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
-import hippo.app.android.models.Post;
+import hippo.app.android.models.Task;
 import hippo.app.android.models.User;
 
-/**  */
 
-public class NewTaskActivity extends BaseActivity {
+public class NewTaskActivity extends hippo.app.android.BaseActivity {
 
     private static final String TAG = "NewTaskActivity";
     private static final String REQUIRED = "Required";
@@ -31,8 +30,8 @@ public class NewTaskActivity extends BaseActivity {
     private DatabaseReference mDatabase;
     // [END declare_database_ref]
 
-    private EditText mTitleField;
-    private EditText mBodyField;
+    private EditText mTaskDes;
+    private EditText mTaskLoc;
     private FloatingActionButton mSubmitButton;
 
     @Override
@@ -44,31 +43,31 @@ public class NewTaskActivity extends BaseActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         // [END initialize_database_ref]
 
-        mTitleField = (EditText) findViewById(R.id.field_title);
-        mBodyField = (EditText) findViewById(R.id.field_body);
-        mSubmitButton = (FloatingActionButton) findViewById(R.id.fab_submit_post);
+        mTaskDes = (EditText) findViewById(R.id.task_des);
+        mTaskLoc = (EditText) findViewById(R.id.task_loc);
+        mSubmitButton = (FloatingActionButton) findViewById(R.id.fab_submit_task);
 
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submitPost();
+                submitTask();
             }
         });
     }
 
-    private void submitPost() {
-        final String title = mTitleField.getText().toString();
-        final String body = mBodyField.getText().toString();
+    private void submitTask() {
+        final String description = mTaskDes.getText().toString();
+        final String location = mTaskLoc.getText().toString();
 
-        // Title is required
-        if (TextUtils.isEmpty(title)) {
-            mTitleField.setError(REQUIRED);
+        // Description is required
+        if (TextUtils.isEmpty(description)) {
+            mTaskDes.setError(REQUIRED);
             return;
         }
 
-        // Body is required
-        if (TextUtils.isEmpty(body)) {
-            mBodyField.setError(REQUIRED);
+        // Location is required
+        if (TextUtils.isEmpty(location)) {
+            mTaskLoc.setError(REQUIRED);
             return;
         }
 
@@ -94,7 +93,7 @@ public class NewTaskActivity extends BaseActivity {
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new post
-                            writeNewPost(userId, user.username, title, body);
+                            writeNewPost(userId, user.username, description, location);
                         }
 
                         // Finish this Activity, back to the stream
@@ -114,9 +113,10 @@ public class NewTaskActivity extends BaseActivity {
         // [END single_value_read]
     }
 
+    // what's going on here?
     private void setEditingEnabled(boolean enabled) {
-        mTitleField.setEnabled(enabled);
-        mBodyField.setEnabled(enabled);
+        mTaskDes.setEnabled(enabled);
+        mTaskLoc.setEnabled(enabled);
         if (enabled) {
             mSubmitButton.setVisibility(View.VISIBLE);
         } else {
@@ -125,16 +125,16 @@ public class NewTaskActivity extends BaseActivity {
     }
 
     // [START write_fan_out]
-    private void writeNewPost(String userId, String username, String title, String body) {
-        // Create new post at /user-posts/$userid/$postid and at
-        // /posts/$postid simultaneously
-        String key = mDatabase.child("posts").push().getKey();
-        Post post = new Post(userId, username, title, body);
-        Map<String, Object> postValues = post.toMap();
+    private void writeNewPost(String userId, String username, String description, String location) {
+        // Create new task at /user-tasks/$userid/$taskid and at
+        // /tasks/$taskid simultaneously
+        String key = mDatabase.child("tasks").push().getKey();
+        Task task = new Task(userId, username, description, location);
+        Map<String, Object> postValues = task.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();
-        childUpdates.put("/posts/" + key, postValues);
-        childUpdates.put("/user-posts/" + userId + "/" + key, postValues);
+        childUpdates.put("/tasks/" + key, postValues);
+        childUpdates.put("/user-tasks/" + userId + "/" + key, postValues);
 
         mDatabase.updateChildren(childUpdates);
     }

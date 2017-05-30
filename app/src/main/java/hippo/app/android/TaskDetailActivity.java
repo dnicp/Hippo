@@ -23,22 +23,20 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import hippo.app.android.BaseActivity;
-import hippo.app.android.R;
 import hippo.app.android.models.Comment;
-import hippo.app.android.models.Post;
+import hippo.app.android.models.Task;
 import hippo.app.android.models.User;
 
-public class PostDetailActivity extends BaseActivity implements View.OnClickListener {
+public class TaskDetailActivity extends hippo.app.android.BaseActivity implements View.OnClickListener {
 
-    private static final String TAG = "PostDetailActivity";
+    private static final String TAG = "TaskDetailActivity";
 
-    public static final String EXTRA_POST_KEY = "post_key";
+    public static final String EXTRA_TASK_KEY = "task_key";
 
-    private DatabaseReference mPostReference;
+    private DatabaseReference mTaskReference;
     private DatabaseReference mCommentsReference;
-    private ValueEventListener mPostListener;
-    private String mPostKey;
+    private ValueEventListener mTaskListener;
+    private String mTaskKey;
     private CommentAdapter mAdapter;
 
     private TextView mAuthorView;
@@ -51,26 +49,26 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_detail);
+        setContentView(R.layout.activity_task_detail);
 
-        // Get post key from intent
-        mPostKey = getIntent().getStringExtra(EXTRA_POST_KEY);
-        if (mPostKey == null) {
-            throw new IllegalArgumentException("Must pass EXTRA_POST_KEY");
+        // Get task key from intent
+        mTaskKey = getIntent().getStringExtra(EXTRA_TASK_KEY);
+        if (mTaskKey == null) {
+            throw new IllegalArgumentException("Must pass EXTRA_TASK_KEY");
         }
 
         // Initialize Database
-        mPostReference = FirebaseDatabase.getInstance().getReference()
-                .child("posts").child(mPostKey);
+        mTaskReference = FirebaseDatabase.getInstance().getReference()
+                .child("tasks").child(mTaskKey);
         mCommentsReference = FirebaseDatabase.getInstance().getReference()
-                .child("post-comments").child(mPostKey);
+                .child("task-comments").child(mTaskKey);
 
         // Initialize Views
-        mAuthorView = (TextView) findViewById(R.id.post_author);
-        mTitleView = (TextView) findViewById(R.id.post_title);
-        mBodyView = (TextView) findViewById(R.id.post_body);
+        mAuthorView = (TextView) findViewById(R.id.task_author);
+        mTitleView = (TextView) findViewById(R.id.task_des);
+        mBodyView = (TextView) findViewById(R.id.task_loc);
         mCommentField = (EditText) findViewById(R.id.field_comment_text);
-        mCommentButton = (Button) findViewById(R.id.button_post_comment);
+        mCommentButton = (Button) findViewById(R.id.button_task_comment);
         mCommentsRecycler = (RecyclerView) findViewById(R.id.recycler_comments);
 
         mCommentButton.setOnClickListener(this);
@@ -82,35 +80,35 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
     public void onStart() {
         super.onStart();
 
-        // Add value event listener to the post
-        // [START post_value_event_listener]
-        ValueEventListener postListener = new ValueEventListener() {
+        // Add value event listener to the task
+        // [START task_value_event_listener]
+        ValueEventListener taskListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
-                Post post = dataSnapshot.getValue(Post.class);
+                // Get Task object and use the values to update the UI
+                Task task = dataSnapshot.getValue(Task.class);
                 // [START_EXCLUDE]
-                mAuthorView.setText(post.author);
-                mTitleView.setText(post.title);
-                mBodyView.setText(post.body);
+                mAuthorView.setText(task.author);
+                mTitleView.setText(task.description);
+                mBodyView.setText(task.location);
                 // [END_EXCLUDE]
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // Getting Task failed, log a message
+                Log.w(TAG, "loadTask:onCancelled", databaseError.toException());
                 // [START_EXCLUDE]
-                Toast.makeText(PostDetailActivity.this, "Failed to load post.",
+                Toast.makeText(TaskDetailActivity.this, "Failed to load task.",
                         Toast.LENGTH_SHORT).show();
                 // [END_EXCLUDE]
             }
         };
-        mPostReference.addValueEventListener(postListener);
-        // [END post_value_event_listener]
+        mTaskReference.addValueEventListener(taskListener);
+        // [END task_value_event_listener]
 
-        // Keep copy of post listener so we can remove it when app stops
-        mPostListener = postListener;
+        // Keep copy of task listener so we can remove it when app stops
+        mTaskListener = taskListener;
 
         // Listen for comments
         mAdapter = new CommentAdapter(this, mCommentsReference);
@@ -121,9 +119,9 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
     public void onStop() {
         super.onStop();
 
-        // Remove post value event listener
-        if (mPostListener != null) {
-            mPostReference.removeEventListener(mPostListener);
+        // Remove task value event listener
+        if (mTaskListener != null) {
+            mTaskReference.removeEventListener(mTaskListener);
         }
 
         // Clean up comments listener
@@ -133,12 +131,12 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.button_post_comment) {
-            postComment();
+        if (i == R.id.button_task_comment) {
+            taskComment();
         }
     }
 
-    private void postComment() {
+    private void taskComment() {
         final String uid = getUid();
         FirebaseDatabase.getInstance().getReference().child("users").child(uid)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -270,7 +268,7 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-                    Log.w(TAG, "postComments:onCancelled", databaseError.toException());
+                    Log.w(TAG, "taskComments:onCancelled", databaseError.toException());
                     Toast.makeText(mContext, "Failed to load comments.",
                             Toast.LENGTH_SHORT).show();
                 }

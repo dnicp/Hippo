@@ -11,8 +11,8 @@
         android:padding="10dp">
 
         <include
-            android:id="@+id/post_author_layout"
-            layout="@layout/include_post_author"
+            android:id="@+id/task_author_layout"
+            layout="@layout/include_task_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true" />
@@ -21,9 +21,9 @@
             android:id="@+id/star_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/post_author_layout"
+            android:layout_alignBottom="@+id/task_author_layout"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/post_author_layout"
+            android:layout_alignTop="@+id/task_author_layout"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -37,7 +37,7 @@
                 android:src="@drawable/ic_toggle_star_outline_24" />
 
             <TextView
-                android:id="@+id/post_num_stars"
+                android:id="@+id/task_num_stars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -45,11 +45,11 @@
 
         </LinearLayout>
 
-        <include layout="@layout/include_post_text"
+        <include layout="@layout/include_task_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/post_author_layout"
+            android:layout_below="@+id/task_author_layout"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp" />
 

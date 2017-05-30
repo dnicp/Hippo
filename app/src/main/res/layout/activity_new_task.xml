@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
 
+
     <TextView
         android:id="@+id/task_cat"
         android:text="Task Category (autofill)"
@@ -26,6 +27,7 @@
         android:layout_marginTop="16dp"
         android:hint="Task Description"
         android:maxLines="1" />
+
 
     <RadioButton
         android:id="@+id/radioButtonPooling"
@@ -72,52 +74,13 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="5dp"
-        android:hint="task postcode"
+        android:hint="task location"
         android:inputType="textMultiLine"
         android:maxLines="1"
         android:scrollHorizontally="false" />
 
-    <TextView
-        android:id="@+id/layoutspacer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/task_loc"
-        android:text="new and old layout spacer"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"/>
-
-
-
-    <EditText
-        android:id="@+id/field_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layoutspacer"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
-        android:hint="Title"
-        android:maxLines="1" />
-
-    <EditText
-        android:id="@+id/field_body"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/field_title"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="5dp"
-        android:hint="Write your post..."
-        android:inputType="textMultiLine"
-        android:maxLines="10"
-        android:scrollHorizontally="false" />
-
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_submit_post"
+        android:id="@+id/fab_submit_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
