@@ -17,16 +17,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
-import hippo.app.android.BaseActivity;
-import hippo.app.android.R;
 import hippo.app.android.models.Post;
 import hippo.app.android.models.User;
 
 /**  */
 
-public class NewPostActivity extends BaseActivity {
+public class NewTaskActivity extends BaseActivity {
 
-    private static final String TAG = "NewPostActivity";
+    private static final String TAG = "NewTaskActivity";
     private static final String REQUIRED = "Required";
 
     // [START declare_database_ref]
@@ -40,7 +38,7 @@ public class NewPostActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_post);
+        setContentView(R.layout.activity_new_task);
 
         // [START initialize_database_ref]
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -91,7 +89,7 @@ public class NewPostActivity extends BaseActivity {
                         if (user == null) {
                             // User is null, error out
                             Log.e(TAG, "User " + userId + " is unexpectedly null");
-                            Toast.makeText(NewPostActivity.this,
+                            Toast.makeText(NewTaskActivity.this,
                                     "Error: could not fetch user.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
