@@ -75,6 +75,13 @@ public class MainActivity extends hippo.app.android.BaseActivity {
                 startActivity(new Intent(MainActivity.this, hippo.app.android.NewTaskActivity.class));
             }
         });
+// test button on main page
+        findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, TestActivity.class));
+            }
+        });
     }
 
     // menu stuff starts
