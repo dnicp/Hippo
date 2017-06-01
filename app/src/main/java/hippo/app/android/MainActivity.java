@@ -93,7 +93,13 @@ public class MainActivity extends hippo.app.android.BaseActivity {
             startActivity(new Intent(this, hippo.app.android.SignInActivity.class));
             finish();
             return true;
-        } else {
+        }
+        if (i == R.id.action_test) {
+            startActivity(new Intent(this, TestActivity.class));
+            finish();
+            return true;
+        }
+        else {
             return super.onOptionsItemSelected(item);
         }
     }
