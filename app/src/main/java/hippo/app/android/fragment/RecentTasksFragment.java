@@ -9,8 +9,8 @@ public class RecentTasksFragment extends TaskListFragment {
 
     @Override
     public Query getQuery(DatabaseReference databaseReference) {
-        // [START recent_tasjs_query]
-        // Last 100 tasjs, these are automatically the 100 most recent
+        // [START recent_tasks_query]
+        // Last 100 tasks, these are automatically the 100 most recent
         // due to sorting by push() keys
         Query recentTasksQuery = databaseReference.child("tasks")
                 .limitToFirst(100);

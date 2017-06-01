@@ -23,7 +23,7 @@ import hippo.app.android.models.Task;
 import hippo.app.android.models.User;
 
 
-public class NewTaskActivity extends hippo.app.android.BaseActivity {
+public class NewTaskActivity extends BaseActivity {
 
     private static final String TAG = "NewTaskActivity";
     private static final String REQUIRED = "Required";
@@ -32,12 +32,12 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
     private DatabaseReference mDatabase;
     // [END declare_database_ref]
 
-    private EditText mTaskDes;
-    private EditText mTaskLoc;
+    private EditText mTaskDes, mTaskLoc;
     private RadioGroup mPoolingGroup;
     private RadioButton mPoolingRadioButton;
     private String mPoolingValue;
     private FloatingActionButton mSubmitButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +58,15 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
 
         // end of radio stuff
 
-        mSubmitButton = (FloatingActionButton) findViewById(R.id.fab_submit_task);
-
+// SubmitButton behavior when clicked
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 submitTask();
             }
         });
+
+
     }
 
     private void submitTask() {
@@ -77,7 +78,6 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
         int selectedId = mPoolingGroup.getCheckedRadioButtonId();
         mPoolingRadioButton = (RadioButton) findViewById(selectedId);
         final String pooling = mPoolingRadioButton.getTag().toString();
-
         // something going on with radio group finish
 
 
@@ -121,7 +121,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new post
-                            writeNewPost(userId, user.username, description, location,pooling);
+                            writeNewPost(userId, user.username, description, location, pooling);
                         }
 
                         // Finish this Activity, back to the stream
@@ -167,5 +167,6 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
 
         mDatabase.updateChildren(childUpdates);
     }
+
     // [END write_fan_out]
 }

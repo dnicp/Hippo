@@ -19,7 +19,7 @@ import hippo.app.android.fragment.RecentTasksFragment;
 
 /** Main thread + dot dot menu items */
 
-public class MainActivity extends hippo.app.android.BaseActivity {
+public class MainActivity extends BaseActivity {
 
     private static final String TAG = "MainActivity";
 

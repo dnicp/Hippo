@@ -15,6 +15,7 @@ public class Task {
     public String description;
     public String location;
     public String pooling;
+    public int year,date,yearofmonth;
     public int starCount = 0;
     public Map<String, Boolean> stars = new HashMap<>();
 
