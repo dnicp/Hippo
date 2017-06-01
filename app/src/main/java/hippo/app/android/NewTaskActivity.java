@@ -25,6 +25,7 @@ import hippo.app.android.models.User;
 
 public class NewTaskActivity extends hippo.app.android.BaseActivity {
 
+    
     private static final String TAG = "NewTaskActivity";
     private static final String REQUIRED = "Required";
 
