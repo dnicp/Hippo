@@ -79,7 +79,7 @@ public class MainActivity extends hippo.app.android.BaseActivity {
         findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, TestActivity.class));
+                startActivity(new Intent(MainActivity.this, PickerActivity.class));
             }
         });
     }
@@ -102,7 +102,7 @@ public class MainActivity extends hippo.app.android.BaseActivity {
             return true;
         }
         if (i == R.id.action_test) {
-            startActivity(new Intent(this, TestActivity.class));
+            startActivity(new Intent(this, PickerActivity.class));
             finish();
             return true;
         }
