@@ -13,6 +13,7 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import hippo.app.android.fragment.DatePickerFragment;
 import hippo.app.android.fragment.MyTasksFragment;
 import hippo.app.android.fragment.MyTopTasksFragment;
 import hippo.app.android.fragment.RecentTasksFragment;
@@ -39,24 +40,27 @@ public class MainActivity extends hippo.app.android.BaseActivity {
 
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
-            private final Fragment[] mFragments = new Fragment[] {
+            private final Fragment[] mFragments = new Fragment[]{
                     new RecentTasksFragment(),
                     new MyTasksFragment(),
                     new MyTopTasksFragment(),
             };
-            private final String[] mFragmentNames = new String[] {
+            private final String[] mFragmentNames = new String[]{
                     getString(R.string.heading_recent),
                     getString(R.string.heading_my_tasks),
                     getString(R.string.heading_my_top_tasks)
             };
+
             @Override
             public Fragment getItem(int position) {
                 return mFragments[position];
             }
+
             @Override
             public int getCount() {
                 return mFragments.length;
             }
+
             @Override
             public CharSequence getPageTitle(int position) {
                 return mFragmentNames[position];
@@ -75,15 +79,7 @@ public class MainActivity extends hippo.app.android.BaseActivity {
                 startActivity(new Intent(MainActivity.this, hippo.app.android.NewTaskActivity.class));
             }
         });
-// test button on main page
-        findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PickerActivity.class));
-            }
-        });
     }
-
     // menu stuff starts
 
     @Override
@@ -102,7 +98,7 @@ public class MainActivity extends hippo.app.android.BaseActivity {
             return true;
         }
         if (i == R.id.action_test) {
-            startActivity(new Intent(this, PickerActivity.class));
+            startActivity(new Intent(this, DatePickerFragment.class));
             finish();
             return true;
         }

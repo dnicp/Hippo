@@ -38,8 +38,8 @@
         android:layout_marginTop="16dp"
         android:text="pooling"/>
 
-    <Button
-        android:id="@+id/showDatePicker"
+    <TextView
+        android:id="@+id/task_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/task_pooling"
@@ -47,26 +47,26 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:text="Pick a date"
+        android:text="date"
         />
 
-    <Button
-        android:id="@+id/showTimePicker"
+    <TextView
+        android:id="@+id/task_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/showDatePicker"
+        android:layout_below="@id/task_date"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:text="Pick a time"
+        android:text="time"
         />
 
     <TextView
         android:id="@+id/task_loc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/showTimePicker"
+        android:layout_below="@+id/task_time"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"

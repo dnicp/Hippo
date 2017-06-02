@@ -2,9 +2,11 @@ package hippo.app.android;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -19,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import hippo.app.android.fragment.DatePickerFragment;
+import hippo.app.android.fragment.TimePickerFragment;
 import hippo.app.android.models.Task;
 import hippo.app.android.models.User;
 
@@ -39,6 +43,8 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
     private RadioButton mPoolingRadioButton;
     private String mPoolingValue;
     private FloatingActionButton mSubmitButton;
+    private Button mTimeButton;
+    private Button mDateButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +71,28 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
             @Override
             public void onClick(View v) {
                 submitTask();
+            }
+        });
+
+       mTimeButton = (Button) findViewById(R.id.showTimePicker);
+        mDateButton = (Button) findViewById(R.id.showDatePicker);
+
+// time and date picker activity
+        mTimeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newTimeFragment = new TimePickerFragment();
+                newTimeFragment.show(getSupportFragmentManager(), "timePicker");
+
+            }
+        });
+
+        mDateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newDateFragment = new DatePickerFragment();
+                newDateFragment.show(getSupportFragmentManager(), "datePicker");
+
             }
         });
     }
