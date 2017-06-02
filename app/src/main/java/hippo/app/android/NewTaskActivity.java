@@ -6,10 +6,10 @@ import android.support.v4.app.DialogFragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -43,8 +43,8 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
     private RadioButton mPoolingRadioButton;
     private String mPoolingValue;
     private FloatingActionButton mSubmitButton;
-    private Button mTimeButton;
-    private Button mDateButton;
+    private TextView mTime;
+    private TextView mDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,11 +74,11 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
             }
         });
 
-        mTimeButton = (Button) findViewById(R.id.showTimePicker);
-        mDateButton = (Button) findViewById(R.id.showDatePicker);
+        mTime = (TextView) findViewById(R.id.showTimePicker);
+        mDate = (TextView) findViewById(R.id.showDatePicker);
 
 // time and date picker activity
-        mTimeButton.setOnClickListener(new View.OnClickListener() {
+        mTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DialogFragment newTimeFragment = new TimePickerFragment();
@@ -87,7 +87,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
             }
         });
 
-        mDateButton.setOnClickListener(new View.OnClickListener() {
+        mDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DialogFragment newDateFragment = new DatePickerFragment();
