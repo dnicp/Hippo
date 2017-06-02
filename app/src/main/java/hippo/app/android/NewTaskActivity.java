@@ -29,7 +29,7 @@ import hippo.app.android.models.User;
 
 public class NewTaskActivity extends hippo.app.android.BaseActivity {
 
-    
+
     private static final String TAG = "NewTaskActivity";
     private static final String REQUIRED = "Required";
 
@@ -74,7 +74,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
             }
         });
 
-       mTimeButton = (Button) findViewById(R.id.showTimePicker);
+        mTimeButton = (Button) findViewById(R.id.showTimePicker);
         mDateButton = (Button) findViewById(R.id.showDatePicker);
 
 // time and date picker activity
@@ -150,7 +150,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new post
-                            writeNewPost(userId, user.username, description, location,pooling);
+                            writeNewPost(userId, user.username, description, location, pooling);
                         }
 
                         // Finish this Activity, back to the stream
