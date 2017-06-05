@@ -1,15 +1,19 @@
 package hippo.app.android;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +31,7 @@ import hippo.app.android.models.Task;
 import hippo.app.android.models.User;
 
 
-public class NewTaskActivity extends hippo.app.android.BaseActivity {
+public class NewTaskActivity extends hippo.app.android.BaseActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
 
     private static final String TAG = "NewTaskActivity";
@@ -45,6 +49,16 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
     private FloatingActionButton mSubmitButton;
     private TextView mTime;
     private TextView mDate;
+
+    public void onDateSet(DatePicker view, int year, int month, int day) {
+        String date = year + "" + month + "" + day;
+        mDate.setText(date);
+    }
+
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        String time = hourOfDay + "" + minute;
+        mTime.setText(time);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +109,8 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
 
             }
         });
+
+
     }
 
     private void submitTask() {
