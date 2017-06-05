@@ -50,6 +50,8 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     private TextView mTime;
     private TextView mDate;
 
+
+    // set the capture of date and time
     public void onDateSet(DatePicker view, int year, int month, int day) {
         String date = year + "" + month + "" + day;
         mDate.setText(date);
@@ -116,7 +118,8 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     private void submitTask() {
         final String description = mTaskDes.getText().toString();
         final String location = mTaskLoc.getText().toString();
-
+        final String date = mDate.getText().toString();
+        final String time = mTime.getText().toString();
 
         // not happy with this part radio group start
         int selectedId = mPoolingGroup.getCheckedRadioButtonId();
@@ -166,7 +169,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new post
-                            writeNewPost(userId, user.username, description, location, pooling);
+                            writeNewPost(userId, user.username, description, location, pooling, date, time);
                         }
 
                         // Finish this Activity, back to the stream
@@ -191,6 +194,8 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
         mTaskDes.setEnabled(enabled);
         mTaskLoc.setEnabled(enabled);
         mPoolingGroup.setEnabled(enabled);
+        mDate.setEnabled(enabled);
+        mTime.setEnabled(enabled);
         if (enabled) {
             mSubmitButton.setVisibility(View.VISIBLE);
         } else {
@@ -199,11 +204,11 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     }
 
     // [START write_fan_out]
-    private void writeNewPost(String userId, String username, String description, String location, String pooling) {
+    private void writeNewPost(String userId, String username, String description, String location, String pooling, String date, String time) {
         // Create new task at /user-tasks/$userid/$taskid and at
         // /tasks/$taskid simultaneously
         String key = mDatabase.child("tasks").push().getKey();
-        Task task = new Task(userId, username, description, location, pooling);
+        Task task = new Task(userId, username, description, location, pooling, date, time);
         Map<String, Object> postValues = task.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();
