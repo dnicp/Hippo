@@ -43,6 +43,8 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
     private TextView mDesView;
     private TextView mLocView;
     private TextView mPoolingView;
+    private TextView mDate;
+    private TextView mTime;
     private EditText mCommentField;
     private Button mCommentButton;
     private RecyclerView mCommentsRecycler;
@@ -69,6 +71,8 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
         mDesView = (TextView) findViewById(R.id.task_des);
         mLocView = (TextView) findViewById(R.id.task_loc);
         mPoolingView = (TextView) findViewById(R.id.task_pooling);
+        mDate = (TextView) findViewById(R.id.task_date);
+        mTime = (TextView) findViewById(R.id.task_time);
 
         mCommentField = (EditText) findViewById(R.id.field_comment_text);
         mCommentButton = (Button) findViewById(R.id.button_task_comment);
@@ -95,6 +99,8 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
                 mDesView.setText(task.description);
                 mLocView.setText(task.location);
                 mPoolingView.setText(task.pooling);
+                mDate.setText(task.date);
+                mTime.setText(task.time);
                 // [END_EXCLUDE]
             }
 

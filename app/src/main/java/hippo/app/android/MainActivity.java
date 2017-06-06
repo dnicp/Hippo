@@ -13,6 +13,7 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import hippo.app.android.fragment.DatePickerFragment;
 import hippo.app.android.fragment.MyTasksFragment;
 import hippo.app.android.fragment.MyTopTasksFragment;
 import hippo.app.android.fragment.RecentTasksFragment;
@@ -39,24 +40,27 @@ public class MainActivity extends hippo.app.android.BaseActivity {
 
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
-            private final Fragment[] mFragments = new Fragment[] {
+            private final Fragment[] mFragments = new Fragment[]{
                     new RecentTasksFragment(),
                     new MyTasksFragment(),
                     new MyTopTasksFragment(),
             };
-            private final String[] mFragmentNames = new String[] {
+            private final String[] mFragmentNames = new String[]{
                     getString(R.string.heading_recent),
                     getString(R.string.heading_my_tasks),
                     getString(R.string.heading_my_top_tasks)
             };
+
             @Override
             public Fragment getItem(int position) {
                 return mFragments[position];
             }
+
             @Override
             public int getCount() {
                 return mFragments.length;
             }
+
             @Override
             public CharSequence getPageTitle(int position) {
                 return mFragmentNames[position];
@@ -76,7 +80,6 @@ public class MainActivity extends hippo.app.android.BaseActivity {
             }
         });
     }
-
     // menu stuff starts
 
     @Override
@@ -93,10 +96,18 @@ public class MainActivity extends hippo.app.android.BaseActivity {
             startActivity(new Intent(this, hippo.app.android.SignInActivity.class));
             finish();
             return true;
-        } else {
+        }
+        if (i == R.id.action_test) {
+            startActivity(new Intent(this, DatePickerFragment.class));
+            finish();
+            return true;
+        }
+        else {
             return super.onOptionsItemSelected(item);
         }
     }
 
     // menu stuff ends
+
+
 }

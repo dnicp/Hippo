@@ -1,13 +1,19 @@
 package hippo.app.android;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,13 +25,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import hippo.app.android.fragment.DatePickerFragment;
+import hippo.app.android.fragment.TimePickerFragment;
 import hippo.app.android.models.Task;
 import hippo.app.android.models.User;
 
 
-public class NewTaskActivity extends hippo.app.android.BaseActivity {
+public class NewTaskActivity extends hippo.app.android.BaseActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
-    
+
     private static final String TAG = "NewTaskActivity";
     private static final String REQUIRED = "Required";
 
@@ -39,6 +47,20 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
     private RadioButton mPoolingRadioButton;
     private String mPoolingValue;
     private FloatingActionButton mSubmitButton;
+    private TextView mTime;
+    private TextView mDate;
+
+
+    // set the capture of date and time
+    public void onDateSet(DatePicker view, int year, int month, int day) {
+        String date = day + "/" + month + "/" + year;
+        mDate.setText(date);
+    }
+
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        String time = hourOfDay + ":" + minute;
+        mTime.setText(time);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,12 +89,37 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
                 submitTask();
             }
         });
+
+        mTime = (TextView) findViewById(R.id.showTimePicker);
+        mDate = (TextView) findViewById(R.id.showDatePicker);
+
+// time and date picker activity
+        mTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newTimeFragment = new TimePickerFragment();
+                newTimeFragment.show(getSupportFragmentManager(), "timePicker");
+
+            }
+        });
+
+        mDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newDateFragment = new DatePickerFragment();
+                newDateFragment.show(getSupportFragmentManager(), "datePicker");
+
+            }
+        });
+
+
     }
 
     private void submitTask() {
         final String description = mTaskDes.getText().toString();
         final String location = mTaskLoc.getText().toString();
-
+        final String date = mDate.getText().toString();
+        final String time = mTime.getText().toString();
 
         // not happy with this part radio group start
         int selectedId = mPoolingGroup.getCheckedRadioButtonId();
@@ -100,6 +147,16 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
             return;
         }
 
+        // Date is required
+        if (TextUtils.isEmpty(date)) {
+            mDate.setError(REQUIRED);
+            return;
+        }
+        // Time is required
+        if (TextUtils.isEmpty(time)) {
+            mTime.setError(REQUIRED);
+            return;
+        }
         // Disable button so there are no multi-posts
         setEditingEnabled(false);
         Toast.makeText(this, "Posting...", Toast.LENGTH_SHORT).show();
@@ -122,7 +179,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new post
-                            writeNewPost(userId, user.username, description, location,pooling);
+                            writeNewPost(userId, user.username, description, location, pooling, date, time);
                         }
 
                         // Finish this Activity, back to the stream
@@ -147,6 +204,8 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
         mTaskDes.setEnabled(enabled);
         mTaskLoc.setEnabled(enabled);
         mPoolingGroup.setEnabled(enabled);
+        mDate.setEnabled(enabled);
+        mTime.setEnabled(enabled);
         if (enabled) {
             mSubmitButton.setVisibility(View.VISIBLE);
         } else {
@@ -155,11 +214,11 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity {
     }
 
     // [START write_fan_out]
-    private void writeNewPost(String userId, String username, String description, String location, String pooling) {
+    private void writeNewPost(String userId, String username, String description, String location, String pooling, String date, String time) {
         // Create new task at /user-tasks/$userid/$taskid and at
         // /tasks/$taskid simultaneously
         String key = mDatabase.child("tasks").push().getKey();
-        Task task = new Task(userId, username, description, location, pooling);
+        Task task = new Task(userId, username, description, location, pooling, date, time);
         Map<String, Object> postValues = task.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();

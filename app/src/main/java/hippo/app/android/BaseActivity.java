@@ -5,9 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-/**
- * don't change shit in this as this a re-written of the AppCompatAtivity class
- */
 
 public class BaseActivity extends AppCompatActivity {
 
