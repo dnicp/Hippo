@@ -53,12 +53,12 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
 
     // set the capture of date and time
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        String date = year + "" + month + "" + day;
+        String date = day + "/" + month + "/" + year;
         mDate.setText(date);
     }
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        String time = hourOfDay + "" + minute;
+        String time = hourOfDay + ":" + minute;
         mTime.setText(time);
     }
 
@@ -147,6 +147,16 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
             return;
         }
 
+        // Date is required
+        if (TextUtils.isEmpty(date)) {
+            mDate.setError(REQUIRED);
+            return;
+        }
+        // Time is required
+        if (TextUtils.isEmpty(time)) {
+            mTime.setError(REQUIRED);
+            return;
+        }
         // Disable button so there are no multi-posts
         setEditingEnabled(false);
         Toast.makeText(this, "Posting...", Toast.LENGTH_SHORT).show();
