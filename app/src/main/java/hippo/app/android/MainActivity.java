@@ -13,7 +13,6 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import hippo.app.android.fragment.DatePickerFragment;
 import hippo.app.android.fragment.MyTasksFragment;
 import hippo.app.android.fragment.MyTopTasksFragment;
 import hippo.app.android.fragment.RecentTasksFragment;
@@ -79,6 +78,7 @@ public class MainActivity extends hippo.app.android.BaseActivity {
                 startActivity(new Intent(MainActivity.this, hippo.app.android.NewTaskActivity.class));
             }
         });
+
     }
     // menu stuff starts
 
@@ -98,7 +98,7 @@ public class MainActivity extends hippo.app.android.BaseActivity {
             return true;
         }
         if (i == R.id.action_test) {
-            startActivity(new Intent(this, DatePickerFragment.class));
+            startActivity(new Intent(this, categoryActivity.class));
             finish();
             return true;
         }

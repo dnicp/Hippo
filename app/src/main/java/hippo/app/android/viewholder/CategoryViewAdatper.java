@@ -1,4 +1,4 @@
-package hippo.app.android;
+package hippo.app.android.viewholder;
 
 
 import android.content.Context;
@@ -11,12 +11,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import hippo.app.android.R;
 import hippo.app.android.models.Category;
 
 
-
 public class CategoryViewAdatper extends ArrayAdapter<Category> {
-    private int mColorResourceId;
 
     public CategoryViewAdatper (Context context, ArrayList<Category> categories){
         super(context,0,categories);
@@ -28,7 +27,7 @@ public class CategoryViewAdatper extends ArrayAdapter<Category> {
         View gridItemView = convertView;
         if (gridItemView == null) {
             gridItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.task_list, parent, false);
+                    R.layout.item_category, parent, false);
         }
 
         // Get the {@link category} object located at this position in the list

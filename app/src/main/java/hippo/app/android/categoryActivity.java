@@ -6,15 +6,16 @@ import android.widget.GridView;
 import java.util.ArrayList;
 
 import hippo.app.android.models.Category;
+import hippo.app.android.viewholder.CategoryViewAdatper;
 
 public class categoryActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task_cat);
+        setContentView(R.layout.category_list);
 
-        // Create a list of words
+        // Create a list of categories
         final ArrayList<Category> categories = new ArrayList<Category>();
         categories.add(new Category(R.drawable.ic_car, "Car"));
         categories.add(new Category(R.drawable.ic_add_button,"button"));
@@ -25,7 +26,7 @@ public class categoryActivity extends BaseActivity {
         CategoryViewAdatper adapter = new CategoryViewAdatper(this, categories);
 
 
-        GridView gridView = (GridView) findViewById(R.id.catetoryGrid);
+        GridView gridView = (GridView) findViewById(R.id.catetoryList);
 
         gridView.setAdapter(adapter);
 

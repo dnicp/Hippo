@@ -24,6 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".TaskDetailActivity"></activity>
+        <activity android:name=".categoryActivity"></activity>
     </application>
 
 </manifest>
