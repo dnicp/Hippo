@@ -71,7 +71,7 @@ public class MainActivity extends BaseActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        // Button launches NewTaskActivity
+        // Button launches NewCarActivity
         findViewById(R.id.fab_new_task).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

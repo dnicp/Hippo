@@ -9,6 +9,8 @@ import android.widget.ImageView;
 public class CategoryActivity extends BaseActivity {
 
     private ImageView car;
+    private ImageView events;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,11 +18,19 @@ public class CategoryActivity extends BaseActivity {
         setContentView(R.layout.activity_category);
 
         car = (ImageView)findViewById(R.id.cat_car);
+        events = (ImageView)findViewById(R.id.cat_events);
 
         car.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CategoryActivity.this, NewTaskActivity.class));
+                startActivity(new Intent(CategoryActivity.this, NewCarActivity.class));
+            }
+        });
+
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CategoryActivity.this, NewEventsActivity.class));
             }
         });
     }

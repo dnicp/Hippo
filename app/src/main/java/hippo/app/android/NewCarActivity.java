@@ -31,10 +31,10 @@ import hippo.app.android.models.Task;
 import hippo.app.android.models.User;
 
 
-public class NewTaskActivity extends hippo.app.android.BaseActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+public class NewCarActivity extends hippo.app.android.BaseActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
 
-    private static final String TAG = "NewTaskActivity";
+    private static final String TAG = "NewCarActivity";
     private static final String REQUIRED = "Required";
 
     // [START declare_database_ref]
@@ -45,10 +45,10 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     private EditText mTaskLoc;
     private RadioGroup mPoolingGroup;
     private RadioButton mPoolingRadioButton;
-    private String mPoolingValue;
     private FloatingActionButton mSubmitButton;
     private TextView mTime;
     private TextView mDate;
+    private TextView mcategory;
 
 
     // set the capture of date and time
@@ -70,14 +70,15 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
         // [START initialize_database_ref]
         mDatabase = FirebaseDatabase.getInstance().getReference();
         // [END initialize_database_ref]
-
+        mcategory = (TextView) findViewById(R.id.task_cat);
         mTaskDes = (EditText) findViewById(R.id.task_des);
         mTaskLoc = (EditText) findViewById(R.id.task_loc);
 
+        // autofill category
+        mcategory.setText("Category: Shared Drive");
+
         // start of radio stuff
         mPoolingGroup = (RadioGroup) findViewById(R.id.radioPooling);
-
-        mPoolingValue = "something";
 
         // end of radio stuff
 
@@ -120,6 +121,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
         final String location = mTaskLoc.getText().toString();
         final String date = mDate.getText().toString();
         final String time = mTime.getText().toString();
+        final String category = mcategory.toString();
 
         // not happy with this part radio group start
         int selectedId = mPoolingGroup.getCheckedRadioButtonId();
@@ -174,12 +176,12 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
                         if (user == null) {
                             // User is null, error out
                             Log.e(TAG, "User " + userId + " is unexpectedly null");
-                            Toast.makeText(NewTaskActivity.this,
+                            Toast.makeText(NewCarActivity.this,
                                     "Error: could not fetch user.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new post
-                            writeNewPost(userId, user.username, description, location, pooling, date, time);
+                            writeNewPost(userId, user.username, description, location, pooling, date, time, category);
                         }
 
                         // Finish this Activity, back to the stream
@@ -214,11 +216,11 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     }
 
     // [START write_fan_out]
-    private void writeNewPost(String userId, String username, String description, String location, String pooling, String date, String time) {
+    private void writeNewPost(String userId, String username, String description, String location, String pooling, String date, String time, String category) {
         // Create new task at /user-tasks/$userid/$taskid and at
         // /tasks/$taskid simultaneously
         String key = mDatabase.child("tasks").push().getKey();
-        Task task = new Task(userId, username, description, location, pooling, date, time);
+        Task task = new Task(userId, username, description, location, pooling, date, time, category);
         Map<String, Object> postValues = task.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();
