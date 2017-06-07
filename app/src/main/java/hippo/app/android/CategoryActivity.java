@@ -31,6 +31,7 @@ public class CategoryActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CategoryActivity.this, NewEventsActivity.class));
+                finish();
             }
         });
     }

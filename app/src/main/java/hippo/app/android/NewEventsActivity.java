@@ -198,6 +198,7 @@ public class NewEventsActivity extends BaseActivity implements DatePickerDialog.
                     }
                 });
         // [END single_value_read]
+        clearToMainactivity();
     }
 
     // what's going on here?

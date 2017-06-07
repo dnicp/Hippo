@@ -199,6 +199,7 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
                     }
                 });
         // [END single_value_read]
+    clearToMainactivity();
     }
 
     // what's going on here?
