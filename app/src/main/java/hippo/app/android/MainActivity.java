@@ -13,14 +13,13 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import hippo.app.android.fragment.DatePickerFragment;
 import hippo.app.android.fragment.MyTasksFragment;
 import hippo.app.android.fragment.MyTopTasksFragment;
 import hippo.app.android.fragment.RecentTasksFragment;
 
 /** Main thread + dot dot menu items */
 
-public class MainActivity extends hippo.app.android.BaseActivity {
+public class MainActivity extends BaseActivity {
 
     private static final String TAG = "MainActivity";
 
@@ -72,11 +71,11 @@ public class MainActivity extends hippo.app.android.BaseActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        // Button launches NewTaskActivity
+        // Button launches NewCarActivity
         findViewById(R.id.fab_new_task).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, hippo.app.android.NewTaskActivity.class));
+                startActivity(new Intent(MainActivity.this, CategoryActivity.class));
             }
         });
     }
@@ -98,7 +97,7 @@ public class MainActivity extends hippo.app.android.BaseActivity {
             return true;
         }
         if (i == R.id.action_test) {
-            startActivity(new Intent(this, DatePickerFragment.class));
+            startActivity(new Intent(this,CategoryActivity.class));
             finish();
             return true;
         }

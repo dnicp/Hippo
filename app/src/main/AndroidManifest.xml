@@ -14,8 +14,12 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
-        <activity android:name=".NewTaskActivity"
+        <activity android:name=".NewCarActivity"
             android:label="New Task"/>
+        <activity android:name=".NewEventsActivity"
+            android:label="New Task"/>
+        <activity android:name=".CategoryActivity"
+            android:label="Select task category"/>
         <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
