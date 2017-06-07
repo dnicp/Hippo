@@ -48,7 +48,7 @@ public class NewEventsActivity extends BaseActivity implements DatePickerDialog.
     private FloatingActionButton mSubmitButton;
     private TextView mTime;
     private TextView mDate;
-    private String mcategory = "events";
+    private TextView mCategory;
 
 
     // set the capture of date and time
@@ -73,6 +73,7 @@ public class NewEventsActivity extends BaseActivity implements DatePickerDialog.
 
         mTaskDes = (EditText) findViewById(R.id.task_des);
         mTaskLoc = (EditText) findViewById(R.id.task_loc);
+        mCategory = (TextView) findViewById(R.id.task_cat);
 
         // start of radio stuff
         mPoolingGroup = (RadioGroup) findViewById(R.id.radioPooling);
@@ -90,7 +91,8 @@ public class NewEventsActivity extends BaseActivity implements DatePickerDialog.
 
         mTime = (TextView) findViewById(R.id.showTimePicker);
         mDate = (TextView) findViewById(R.id.showDatePicker);
-
+// set display text for category
+        mCategory.setText("Category: Events");
 // time and date picker activity
         mTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +120,7 @@ public class NewEventsActivity extends BaseActivity implements DatePickerDialog.
         final String location = mTaskLoc.getText().toString();
         final String date = mDate.getText().toString();
         final String time = mTime.getText().toString();
-        final String category = mcategory;
+        final String category = "Events";
 
         // not happy with this part radio group start
         int selectedId = mPoolingGroup.getCheckedRadioButtonId();

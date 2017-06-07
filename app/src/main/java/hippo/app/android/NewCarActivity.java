@@ -121,7 +121,7 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
         final String location = mTaskLoc.getText().toString();
         final String date = mDate.getText().toString();
         final String time = mTime.getText().toString();
-        final String category = mcategory.toString();
+        final String category = "car";
 
         // not happy with this part radio group start
         int selectedId = mPoolingGroup.getCheckedRadioButtonId();
