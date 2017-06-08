@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import hippo.app.android.fragment.MyTasksFragment;
 import hippo.app.android.fragment.MyTopTasksFragment;
 import hippo.app.android.fragment.RecentTasksFragment;
+import hippo.app.android.fragment.TestViewFragment;
 
 /** Main thread + dot dot menu items */
 
@@ -43,11 +44,13 @@ public class MainActivity extends BaseActivity {
                     new RecentTasksFragment(),
                     new MyTasksFragment(),
                     new MyTopTasksFragment(),
+                    new TestViewFragment(),
             };
             private final String[] mFragmentNames = new String[]{
                     getString(R.string.heading_recent),
                     getString(R.string.heading_my_tasks),
-                    getString(R.string.heading_my_top_tasks)
+                    getString(R.string.heading_my_top_tasks),
+                    "Test Frag",
             };
 
             @Override
