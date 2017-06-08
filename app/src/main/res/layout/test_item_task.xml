@@ -50,8 +50,8 @@
 
             <ImageView
                 android:id="@+id/task_category"
-                android:layout_width="@string/image_icon_width"
-                android:layout_height="@string/image_icon_height"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_weight="3"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
@@ -59,24 +59,24 @@
 
             <ImageView
                 android:id="@+id/task_onoff"
-                android:layout_width="@string/image_icon_width"
-                android:layout_height="@string/image_icon_height"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_weight="3"
                 android:padding="5dp"
                 android:src="@drawable/ic_lightson" />
 
             <ImageView
                 android:id="@+id/task_inout"
-                android:layout_width="@string/image_icon_width"
-                android:layout_height="@string/image_icon_height"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_weight="3"
                 android:padding="5dp"
                 android:src="@drawable/ic_notin" />
 
             <ImageView
                 android:id="@+id/task_pooling"
-                android:layout_width="@string/image_icon_width"
-                android:layout_height="@string/image_icon_height"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_weight="3"
                 android:padding="5dp"
                 android:src="@drawable/ic_pooling" />
