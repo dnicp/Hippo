@@ -16,5 +16,7 @@
     <string name="heading_recent">Recent</string>
     <string name="heading_my_tasks">My Tasks</string>
     <string name="heading_my_top_tasks">My Top Tasks</string>
+    <string name="image_icon_height">60dp</string>
+    <string name="image_icon_width">60dp</string>
 </resources>
 
