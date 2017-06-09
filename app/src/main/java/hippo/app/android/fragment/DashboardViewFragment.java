@@ -10,7 +10,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import hippo.app.android.R;
-import hippo.app.android.DashboardTaskDetail;
+import hippo.app.android.models.DashboardTaskDetail;
 import hippo.app.android.viewholder_or_adapters.DashboardTaskAdapter;
 
 /**

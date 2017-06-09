@@ -10,6 +10,7 @@ public class CategoryActivity extends BaseActivity {
 
     private ImageView car;
     private ImageView events;
+    public String category;
 
 
     @Override
@@ -24,6 +25,7 @@ public class CategoryActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CategoryActivity.this, NewCarActivity.class));
+                category = "car";
             }
         });
 
@@ -31,9 +33,11 @@ public class CategoryActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CategoryActivity.this, NewEventsActivity.class));
+                category = "events";
                 finish();
             }
         });
     }
 
 }
+

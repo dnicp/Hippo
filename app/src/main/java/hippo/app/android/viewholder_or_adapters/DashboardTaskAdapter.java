@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import hippo.app.android.R;
-import hippo.app.android.DashboardTaskDetail;
+import hippo.app.android.models.DashboardTaskDetail;
 
 /**
  * Created by Daniel on 9/6/17.
