@@ -1,4 +1,4 @@
-package hippo.app.android.viewholder;
+package hippo.app.android.viewholder_or_adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -15,10 +15,10 @@ public class TestTaskViewHolder extends RecyclerView.ViewHolder {
     public TextView dateView;
     public TextView weekdayView;
     public ImageView categoryView;
-    public ImageView onoffView;
-    public ImageView inoutView;
+    public ImageView onOffView;
+    public ImageView inOutView;
     public ImageView poolingView;
-    public ImageView locationimageView;
+    public ImageView locationImageView;
     public TextView locationView;
 
 
@@ -29,10 +29,10 @@ public class TestTaskViewHolder extends RecyclerView.ViewHolder {
         dateView = (TextView) itemView.findViewById(R.id.task_date);
         weekdayView = (TextView) itemView.findViewById(R.id.task_weekday);
         categoryView = (ImageView) itemView.findViewById(R.id.task_category);
-        onoffView = (ImageView) itemView.findViewById(R.id.task_onoff);
-        inoutView = (ImageView) itemView.findViewById(R.id.task_inout);
+        onOffView = (ImageView) itemView.findViewById(R.id.task_onoff);
+        inOutView = (ImageView) itemView.findViewById(R.id.task_inout);
         poolingView = (ImageView) itemView.findViewById(R.id.task_pooling);
-        locationimageView = (ImageView) itemView.findViewById(R.id.task_location_image);
+        locationImageView = (ImageView) itemView.findViewById(R.id.task_location_image);
         locationView = (TextView) itemView.findViewById(R.id.task_location);
     }
 
@@ -41,10 +41,10 @@ public class TestTaskViewHolder extends RecyclerView.ViewHolder {
         dateView = (TextView) itemView.findViewById(R.id.task_date);
         weekdayView = (TextView) itemView.findViewById(R.id.task_weekday);
         categoryView = (ImageView) itemView.findViewById(R.id.task_category);
-        onoffView = (ImageView) itemView.findViewById(R.id.task_onoff);
-        inoutView = (ImageView) itemView.findViewById(R.id.task_inout);
+        onOffView = (ImageView) itemView.findViewById(R.id.task_onoff);
+        inOutView = (ImageView) itemView.findViewById(R.id.task_inout);
         poolingView = (ImageView) itemView.findViewById(R.id.task_pooling);
-        locationimageView = (ImageView) itemView.findViewById(R.id.task_location_image);
+        locationImageView = (ImageView) itemView.findViewById(R.id.task_location_image);
         locationView = (TextView) itemView.findViewById(R.id.task_location);
 
     }
