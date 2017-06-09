@@ -16,7 +16,7 @@
 package hippo.app.android;
 
 
-public class TestTaskDetail {
+public class DashboardTaskDetail {
 
     private String mTime;
     private String mDate;
@@ -27,7 +27,7 @@ public class TestTaskDetail {
     private String mPooling;
     private String mLocation;
 
-    public TestTaskDetail(String time, String date, String weekday, int categoryImageSourceId, int onOffImageSourceId, int inOutImageSourceId, String pooling, String location) {
+    public DashboardTaskDetail(String time, String date, String weekday, int categoryImageSourceId, int onOffImageSourceId, int inOutImageSourceId, String pooling, String location) {
         mTime = time;
         mDate = date;
         mWeekday = weekday;
