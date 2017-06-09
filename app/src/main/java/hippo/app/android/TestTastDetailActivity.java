@@ -16,30 +16,26 @@
 package hippo.app.android;
 
 
-import android.widget.ImageView;
-import android.widget.TextView;
-
 public class TestTastDetailActivity {
 
     private String mTime;
     private String mDate;
     private String mWeekday;
-    private int mCategoryImageSourceId = NO_IMAGE_PROVIDED;
-    private int mOnOffImageSourceId = NO_IMAGE_PROVIDED;
-    private int mInOutImageSourceId = NO_IMAGE_PROVIDED;
-    private int mPoolingImagesourceId = NO_IMAGE_PROVIDED;
-    private int mLocationImageSourceId = NO_IMAGE_PROVIDED;
+    private int mCategoryImageSourceId;
+    private int mOnOffImageSourceId;
+    private int mInOutImageSourceId;
+    private int mPoolingImagesourceId;
+    private int mLocationImageSourceId;
     private String mLocation;
-    private static final int NO_IMAGE_PROVIDED = -1;
 
-    public TestTastDetailActivity(String time, String date,String weekday, int categoryImageSourceId, int onOffImageSourceId, int inOutImageSourceId, int poolingImageSourceId, int LocationImageSourceId, String location) {
+    public TestTastDetailActivity(String time, String date,String weekday, int categoryImageSourceId, int onOffImageSourceId, int inOutImageSourceId, int poolingImageSourceId, int locationImageSourceId, String location) {
         mTime = time;
         mDate = date;
         mWeekday = weekday;
         mCategoryImageSourceId = categoryImageSourceId;
         mOnOffImageSourceId = onOffImageSourceId;
         mInOutImageSourceId = inOutImageSourceId;
-        mPoolingImagesourceId = poolingImagesourceId;
+        mPoolingImagesourceId = poolingImageSourceId;
         mLocationImageSourceId = locationImageSourceId;
         mLocation = location;
     }
@@ -48,33 +44,43 @@ public class TestTastDetailActivity {
     /**
      * Get the default translation of the word.
      */
-    public String gettimen() {
+    public String getmTimen() {
         return mTime;
     }
 
-    public String getdate() {
+    public String getmDate() {
         return mDate;
     }
 
-    public String getweekday() {
+    public String getmWeekday() {
         return mWeekday;
     }
 
-    public int getImageResourceId() {
-        return mImageResourceId;
+    public int getCategoryImageSourceId() {
+        return mCategoryImageSourceId;
     }
 
-    /**
-     * Returns whether or not there is an image for this word.
-     */
-    public boolean hasImage() {
-        return mImageResourceId != NO_IMAGE_PROVIDED;
+    public int getmOnOffImageSourceId() {
+        return mOnOffImageSourceId;
     }
 
-    /**
-     * Return the audio resource ID of the word.
-     */
-    public int getAudioResourceId() {
-        return mAudioResourceId;
+    public int getmInOutImageSourceId() {
+        return mInOutImageSourceId;
     }
+
+    public int getmPoolingImagesourceId() {
+        return mPoolingImagesourceId;
+    }
+
+    public int getmLocationImageSourceId() {
+        return mLocationImageSourceId;
+    }
+
+    public String getmLocation() {
+        return mLocation;
+    }
+
+
+
+
 }
