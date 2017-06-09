@@ -17,7 +17,6 @@ public class TestTaskViewHolder extends RecyclerView.ViewHolder {
     public ImageView categoryView;
     public ImageView onOffView;
     public ImageView inOutView;
-    public ImageView poolingView;
     public ImageView locationImageView;
     public TextView locationView;
 
@@ -31,7 +30,6 @@ public class TestTaskViewHolder extends RecyclerView.ViewHolder {
         categoryView = (ImageView) itemView.findViewById(R.id.task_category);
         onOffView = (ImageView) itemView.findViewById(R.id.task_onoff);
         inOutView = (ImageView) itemView.findViewById(R.id.task_inout);
-        poolingView = (ImageView) itemView.findViewById(R.id.task_pooling);
         locationImageView = (ImageView) itemView.findViewById(R.id.task_location_image);
         locationView = (TextView) itemView.findViewById(R.id.task_location);
     }
@@ -43,7 +41,6 @@ public class TestTaskViewHolder extends RecyclerView.ViewHolder {
         categoryView = (ImageView) itemView.findViewById(R.id.task_category);
         onOffView = (ImageView) itemView.findViewById(R.id.task_onoff);
         inOutView = (ImageView) itemView.findViewById(R.id.task_inout);
-        poolingView = (ImageView) itemView.findViewById(R.id.task_pooling);
         locationImageView = (ImageView) itemView.findViewById(R.id.task_location_image);
         locationView = (TextView) itemView.findViewById(R.id.task_location);
 
