@@ -11,16 +11,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import hippo.app.android.R;
-import hippo.app.android.TestTaskDetailActivity;
+import hippo.app.android.TestTaskDetail;
 
 /**
  * Created by Daniel on 9/6/17.
  */
 
-public class TestTaskAdapter extends ArrayAdapter<TestTaskDetailActivity> {
+public class TestTaskAdapter extends ArrayAdapter<TestTaskDetail> {
 
 
-    public TestTaskAdapter(Context context, ArrayList<TestTaskDetailActivity> tasks) {
+    public TestTaskAdapter(Context context, ArrayList<TestTaskDetail> tasks) {
         super(context, 0, tasks);
     }
 
@@ -34,7 +34,7 @@ public class TestTaskAdapter extends ArrayAdapter<TestTaskDetailActivity> {
         }
 
         // Get the {@link Word} object located at this position in the list
-        TestTaskDetailActivity currentTask = getItem(position);
+        TestTaskDetail currentTask = getItem(position);
 
         // get views
 

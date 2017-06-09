@@ -16,7 +16,7 @@
 package hippo.app.android;
 
 
-public class TestTaskDetailActivity {
+public class TestTaskDetail {
 
     private String mTime;
     private String mDate;
@@ -29,7 +29,7 @@ public class TestTaskDetailActivity {
     private int mLocationImageSourceId;
     private String mLocation;
 
-    public TestTaskDetailActivity(String time, String date, String weekday, int categoryImageSourceId, int onOffImageSourceId, int inOutImageSourceId, int poolingImageSourceId, String pooling, int locationImageSourceId, String location) {
+    public TestTaskDetail(String time, String date, String weekday, int categoryImageSourceId, int onOffImageSourceId, int inOutImageSourceId, int poolingImageSourceId, String pooling, int locationImageSourceId, String location) {
         mTime = time;
         mDate = date;
         mWeekday = weekday;
