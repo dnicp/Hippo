@@ -62,7 +62,16 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
     public TextView mTime;
     public TextView mLocation;
 
+    // set the capture of date and time
+    public void onDateSet(DatePicker view, int year, int month, int day) {
+        String date = day + "/" + month + "/" + year;
+        mDate.setText(date);
+    }
 
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        String time = hourOfDay + ":" + minute;
+        mTime.setText(time);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,23 +123,14 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
             }
         });
 
-        // set the capture of date and time
-        public void onDateSet(DatePicker view, int year, int month, int day) {
-            String date = day + "/" + month + "/" + year;
-            mDate.setText(date);
-        }
 
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            String time = hourOfDay + ":" + minute;
-            mTime.setText(time);
-        }
 
     }
 
     private void submitTask() {
         final String category = "car";
         final String description = mDescription.getText().toString();
-        final String poolingmin = mPoolingmin.getText().toString();
+        final int poolingmin = Integer.parseInt(mPoolingmin.getText().toString());
         final String date = mDate.getText().toString();
         final String time = mTime.getText().toString();
         final String location = mLocation.getText().toString();
@@ -140,6 +140,7 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
         final boolean lightson = false;
         final boolean authorinout = false;
         final String weekday = "Monday";
+        final String username = user.username;
 
 
         // Description is required
@@ -225,7 +226,7 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
     }
 
     // [START write_fan_out]
-    private void writeNewPost(String userId, String user.username, String category,String description, int poolingmin, int participants, boolean lightson, boolean authorinout, String date, String weekday, String time, String location) {
+    private void writeNewPost(String userId, String username, String category, String description, int poolingmin, int participants, boolean lightson, boolean authorinout, String date, String weekday, String time, String location) {
         // Create new task at /user-tasks/$userid/$taskid and at
         // /tasks/$taskid simultaneously
         String key = mDatabase.child("tasks").push().getKey();

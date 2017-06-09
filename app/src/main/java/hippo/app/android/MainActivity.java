@@ -13,9 +13,6 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import hippo.app.android.fragment.MyTasksFragment;
-import hippo.app.android.fragment.MyTopTasksFragment;
-import hippo.app.android.fragment.RecentTasksFragment;
 import hippo.app.android.fragment.DashboardViewFragment;
 
 /** Main thread + dot dot menu items */
@@ -41,9 +38,9 @@ public class MainActivity extends BaseActivity {
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[]{
-                    new RecentTasksFragment(),
-                    new MyTasksFragment(),
-                    new MyTopTasksFragment(),
+        //            new RecentTasksFragment(),
+          //          new MyTasksFragment(),
+            //        new MyTopTasksFragment(),
                     new DashboardViewFragment(),
             };
             private final String[] mFragmentNames = new String[]{

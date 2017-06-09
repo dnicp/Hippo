@@ -32,6 +32,7 @@ import hippo.app.android.models.User;
 
 
 public class NewEventsActivity extends BaseActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+public class NewEventsActivity extends BaseActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
 
     private static final String TAG = "NewEventsActivity";
