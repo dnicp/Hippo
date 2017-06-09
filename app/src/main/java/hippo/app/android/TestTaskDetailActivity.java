@@ -74,7 +74,7 @@ public class TestTaskDetailActivity {
         return mPoolingImagesourceId;
     }
 
-    public int getmPooling() {
+    public String getmPooling() {
         return mPooling;
     }
 

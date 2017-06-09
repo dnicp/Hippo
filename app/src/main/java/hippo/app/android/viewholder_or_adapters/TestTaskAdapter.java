@@ -20,7 +20,7 @@ import hippo.app.android.TestTaskDetailActivity;
 public class TestTaskAdapter extends ArrayAdapter<TestTaskDetailActivity> {
 
 
-    public TestTaskAdapter(Context context, ArrayList<TestTaskDetailActivity> tasks, int colorResourceId) {
+    public TestTaskAdapter(Context context, ArrayList<TestTaskDetailActivity> tasks) {
         super(context, 0, tasks);
     }
 
