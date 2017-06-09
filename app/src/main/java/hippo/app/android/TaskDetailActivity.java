@@ -98,7 +98,7 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
                 mAuthorView.setText(task.author);
                 mDesView.setText(task.description);
                 mLocView.setText(task.location);
-                mPoolingView.setText(task.pooling);
+                mPoolingView.setText(task.poolingmin);
                 mDate.setText(task.date);
                 mTime.setText(task.time);
                 // [END_EXCLUDE]

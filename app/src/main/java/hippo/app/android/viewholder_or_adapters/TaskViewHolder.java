@@ -10,6 +10,9 @@ import hippo.app.android.models.Task;
 
 
 public class TaskViewHolder extends RecyclerView.ViewHolder {
+    public TextView authorView;
+    public ImageView starView;
+    public TextView numStarsView;
 
     public TextView categoryView;
     public EditText descriptionView;
@@ -22,7 +25,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
 
     public TaskViewHolder(View itemView) {
         super(itemView);
-
+        starView = (ImageView) itemView.findViewById(R.id.star);
         categoryView = (TextView) itemView.findViewById(R.id.task_category);
         descriptionView = (EditText) itemView.findViewById(R.id.task_description);
         poolingminView = (EditText) itemView.findViewById(R.id.task_poolingmin);
@@ -36,6 +39,9 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
 
 
     public void bindToTask(Task task, View.OnClickListener starClickListener) {
+        authorView.setText(task.author);
+        numStarsView.setText(String.valueOf(task.starCount));
+        starView.setOnClickListener(starClickListener);
         categoryView = (TextView) itemView.findViewById(R.id.task_category);
         descriptionView = (EditText) itemView.findViewById(R.id.task_description);
         poolingminView = (EditText) itemView.findViewById(R.id.task_poolingmin);
