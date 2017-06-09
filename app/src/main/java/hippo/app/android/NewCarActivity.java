@@ -225,11 +225,11 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
     }
 
     // [START write_fan_out]
-    private void writeNewPost(String uid, String author, String category,String description, int poolingmin, int participants, boolean lightson, boolean authorinout, String date, String weekday, String time, String location) {
+    private void writeNewPost(String userId, String user.username, String category,String description, int poolingmin, int participants, boolean lightson, boolean authorinout, String date, String weekday, String time, String location) {
         // Create new task at /user-tasks/$userid/$taskid and at
         // /tasks/$taskid simultaneously
         String key = mDatabase.child("tasks").push().getKey();
-        Task task = new Task(userId, user.username,category, description,poolingmin,participants,lightson, authorinout, date, weekday, time, location);
+        Task task = new Task(userId,user.username,category, description,poolingmin,participants,lightson, authorinout, date, weekday, time, location);
         Map<String, Object> postValues = task.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();
