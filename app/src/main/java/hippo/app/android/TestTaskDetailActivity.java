@@ -16,7 +16,7 @@
 package hippo.app.android;
 
 
-public class TestTastDetailActivity {
+public class TestTaskDetailActivity {
 
     private String mTime;
     private String mDate;
@@ -25,10 +25,11 @@ public class TestTastDetailActivity {
     private int mOnOffImageSourceId;
     private int mInOutImageSourceId;
     private int mPoolingImagesourceId;
+    private String mPooling;
     private int mLocationImageSourceId;
     private String mLocation;
 
-    public TestTastDetailActivity(String time, String date,String weekday, int categoryImageSourceId, int onOffImageSourceId, int inOutImageSourceId, int poolingImageSourceId, int locationImageSourceId, String location) {
+    public TestTaskDetailActivity(String time, String date, String weekday, int categoryImageSourceId, int onOffImageSourceId, int inOutImageSourceId, int poolingImageSourceId, String pooling, int locationImageSourceId, String location) {
         mTime = time;
         mDate = date;
         mWeekday = weekday;
@@ -36,6 +37,7 @@ public class TestTastDetailActivity {
         mOnOffImageSourceId = onOffImageSourceId;
         mInOutImageSourceId = inOutImageSourceId;
         mPoolingImagesourceId = poolingImageSourceId;
+        mPooling = pooling;
         mLocationImageSourceId = locationImageSourceId;
         mLocation = location;
     }
@@ -44,7 +46,7 @@ public class TestTastDetailActivity {
     /**
      * Get the default translation of the word.
      */
-    public String getmTimen() {
+    public String getmTime() {
         return mTime;
     }
 
@@ -56,7 +58,7 @@ public class TestTastDetailActivity {
         return mWeekday;
     }
 
-    public int getCategoryImageSourceId() {
+    public int getmCategoryImageSourceId() {
         return mCategoryImageSourceId;
     }
 
@@ -70,6 +72,10 @@ public class TestTastDetailActivity {
 
     public int getmPoolingImagesourceId() {
         return mPoolingImagesourceId;
+    }
+
+    public int getmPooling() {
+        return mPooling;
     }
 
     public int getmLocationImageSourceId() {
