@@ -24,21 +24,17 @@ public class TestTaskDetail {
     private int mCategoryImageSourceId;
     private int mOnOffImageSourceId;
     private int mInOutImageSourceId;
-    private int mPoolingImagesourceId;
     private String mPooling;
-    private int mLocationImageSourceId;
     private String mLocation;
 
-    public TestTaskDetail(String time, String date, String weekday, int categoryImageSourceId, int onOffImageSourceId, int inOutImageSourceId, int poolingImageSourceId, String pooling, int locationImageSourceId, String location) {
+    public TestTaskDetail(String time, String date, String weekday, int categoryImageSourceId, int onOffImageSourceId, int inOutImageSourceId, String pooling, String location) {
         mTime = time;
         mDate = date;
         mWeekday = weekday;
         mCategoryImageSourceId = categoryImageSourceId;
         mOnOffImageSourceId = onOffImageSourceId;
         mInOutImageSourceId = inOutImageSourceId;
-        mPoolingImagesourceId = poolingImageSourceId;
         mPooling = pooling;
-        mLocationImageSourceId = locationImageSourceId;
         mLocation = location;
     }
 
@@ -70,16 +66,8 @@ public class TestTaskDetail {
         return mInOutImageSourceId;
     }
 
-    public int getmPoolingImagesourceId() {
-        return mPoolingImagesourceId;
-    }
-
     public String getmPooling() {
         return mPooling;
-    }
-
-    public int getmLocationImageSourceId() {
-        return mLocationImageSourceId;
     }
 
     public String getmLocation() {

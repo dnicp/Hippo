@@ -32,8 +32,8 @@ public class TestViewFragment extends Fragment{
         // Create a list of words
         final ArrayList<TestTaskDetail> tasks = new ArrayList<TestTaskDetail>();
 
-        tasks.add(new TestTaskDetail("9:00", "04 April","Wednesday",R.drawable.ic_car,R.drawable.ic_lightson,R.drawable.ic_in, R.drawable.ic_pooling,"3", R.drawable.ic_location,"Ultimo"));
-        tasks.add(new TestTaskDetail("9:00", "04 April","Wednesday",R.drawable.ic_car,R.drawable.ic_lightson,R.drawable.ic_in, R.drawable.ic_pooling,"3", R.drawable.ic_location,"Ultimo"));
+        tasks.add(new TestTaskDetail("9:00", "04 April","Wednesday",R.drawable.ic_car,R.drawable.ic_lightson,R.drawable.ic_in,"3","Ultimo"));
+        tasks.add(new TestTaskDetail("9:00", "04 April","Wednesday",R.drawable.ic_car,R.drawable.ic_lightson,R.drawable.ic_in,"3","Ultimo"));
 
         TestTaskAdapter adapter = new TestTaskAdapter(getActivity(), tasks);
         ListView listView = (ListView) rootView.findViewById(R.id.list);

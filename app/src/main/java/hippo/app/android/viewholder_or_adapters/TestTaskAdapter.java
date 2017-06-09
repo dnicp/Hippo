@@ -56,14 +56,8 @@ public class TestTaskAdapter extends ArrayAdapter<TestTaskDetail> {
         ImageView inoutView = (ImageView) listItemView.findViewById(R.id.task_inout);
         inoutView.setImageResource(currentTask.getmInOutImageSourceId());
 
-        ImageView poolingimageView = (ImageView) listItemView.findViewById(R.id.task_poolingimage);
-        poolingimageView.setImageResource(currentTask.getmPoolingImagesourceId());
-
         TextView poolingView = (TextView) listItemView.findViewById(R.id.task_pooling);
         poolingView.setText(currentTask.getmPooling());
-
-        ImageView locationimageView = (ImageView) listItemView.findViewById(R.id.task_location_image);
-        locationimageView.setImageResource(currentTask.getmLocationImageSourceId());
 
         TextView tasklocationView = (TextView) listItemView.findViewById(R.id.task_location);
         tasklocationView.setText(currentTask.getmLocation());
