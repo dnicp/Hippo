@@ -11,8 +11,6 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -23,8 +21,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,9 +28,6 @@ import hippo.app.android.fragment.DatePickerFragment;
 import hippo.app.android.fragment.TimePickerFragment;
 import hippo.app.android.models.Task;
 import hippo.app.android.models.User;
-
-import static android.R.attr.category;
-import static android.R.attr.description;
 
 
 public class NewCarActivity extends hippo.app.android.BaseActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
@@ -81,12 +74,12 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
         // [START initialize_database_ref]
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        mCategory = (TextView) findViewById(R.id.task_cat);
-        mDescription = (EditText) findViewById(R.id.task_des);
+        mCategory = (TextView) findViewById(R.id.task_category);
+        mDescription = (EditText) findViewById(R.id.task_description);
         mPoolingmin = (EditText) findViewById(R.id.task_poolingmin);
         mTimepikcer = (ImageView) findViewById(R.id.showTimePicker);
         mDatepicker = (ImageView) findViewById(R.id.showDatePicker);
-        mLocation = (EditText) findViewById(R.id.task_loc);
+        mLocation = (EditText) findViewById(R.id.task_location);
         mDate = (TextView) findViewById(R.id.task_date);
         mTime = (TextView) findViewById(R.id.task_time);
 
@@ -140,7 +133,6 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
         final boolean lightson = false;
         final boolean authorinout = false;
         final String weekday = "Monday";
-        final String username = user.username;
 
 
         // Description is required
@@ -230,7 +222,7 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
         // Create new task at /user-tasks/$userid/$taskid and at
         // /tasks/$taskid simultaneously
         String key = mDatabase.child("tasks").push().getKey();
-        Task task = new Task(userId,user.username,category, description,poolingmin,participants,lightson, authorinout, date, weekday, time, location);
+        Task task = new Task(userId,username,category, description,poolingmin,participants,lightson, authorinout, date, weekday, time, location);
         Map<String, Object> postValues = task.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();

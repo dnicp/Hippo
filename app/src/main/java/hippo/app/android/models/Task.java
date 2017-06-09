@@ -30,9 +30,10 @@ public class Task {
         // Default constructor required for calls to DataSnapshot.getValue(Task.class)
     }
 
-    public Task(String uid, String author, String description, int poolingmin, int participants, boolean lightson, boolean authorinout, String date, String weekday, String time, String location) {
+    public Task(String uid, String author, String category,String description, int poolingmin, int participants, boolean lightson, boolean authorinout, String date, String weekday, String time, String location) {
         this.uid = uid;
         this.author = author;
+        this.category = category;
         this.description = description;
         this.poolingmin = poolingmin;
         this.participants = participants;
@@ -42,7 +43,6 @@ public class Task {
         this.weekday = weekday;
         this.time =  time;
         this.location = location;
-        this.starCount = starCount;
 
     }
 
