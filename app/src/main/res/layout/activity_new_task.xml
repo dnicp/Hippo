@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
     <TextView
         android:id="@+id/task_cat"
         android:layout_width="match_parent"
@@ -16,6 +17,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
+        android:textSize="20dp"
         android:text="Task Category (autofill)" />
 
     <EditText
@@ -26,50 +28,71 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
+        android:textSize="20dp"
         android:hint="Task Description"
         android:maxLines="3" />
 
-    <TextView
-        android:id="@+id/task_poolingRequired"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Minimum participants required" />
-
     <EditText
-        android:id="@+id/task_pooling"
+        android:id="@+id/task_poolingmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:layout_toRightOf="@id/task_poolingRequired"
-        android:hint="Task Description"
-        android:maxLines="3" />
+        android:textSize="20dp"
+        android:hint="Input minimum number of people required"
+        android:maxLines="1" />
 
-    <ImageView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp">
+        <ImageView
         android:id="@+id/showDatePicker"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
         android:src="@drawable/ic_date" />
+        <TextView
+            android:id="@+id/task_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:text="Date Selected"/>
 
-    <ImageView
-        android:id="@+id/showTimePicker"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_time" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp">
+            <ImageView
+                android:id="@+id/showTimePicker"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_time" />
+            <TextView
+                android:id="@+id/task_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="20dp"
+                android:text="time Selected"/>
+
+        </LinearLayout>
 
     <EditText
         android:id="@+id/task_loc"
@@ -81,6 +104,7 @@
         android:layout_marginTop="5dp"
         android:hint="task location"
         android:inputType="textMultiLine"
+        android:textSize="20dp"
         android:maxLines="1"
         android:scrollHorizontally="false" />
 </LinearLayout>

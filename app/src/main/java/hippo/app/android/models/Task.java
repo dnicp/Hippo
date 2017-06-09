@@ -12,12 +12,16 @@ public class Task {
 
     public String uid;
     public String author;
-    public String description;
-    public String location;
-    public String pooling;
-    public String date;
-    public String time;
     public String category;
+    public String description;
+    public int poolingmin;
+    public int participants;
+    public boolean lightson;
+    public boolean authorinout;
+    public String date;
+    public String weekday;
+    public String time;
+    public String location;
     public int starCount = 0;
     public Map<String, Boolean> stars = new HashMap<>();
 
@@ -25,15 +29,20 @@ public class Task {
         // Default constructor required for calls to DataSnapshot.getValue(Task.class)
     }
 
-    public Task(String uid, String author, String description, String location, String pooling, String date, String time, String category) {
+    public Task(String uid, String author, String description, int poolingmin, int participants, boolean lightson, boolean authorinout, String date, String weekday, String time, String location, int starCount) {
         this.uid = uid;
         this.author = author;
         this.description = description;
-        this.location = location;
-        this.pooling = pooling;
+        this.poolingmin = poolingmin;
+        this.participants = participants;
+        this.lightson = lightson;
+        this.authorinout = authorinout;
         this.date = date;
-        this.time = time;
-        this.category = category;
+        this.weekday = weekday;
+        this.time =  time;
+        this.location = location;
+        this.starCount = starCount;
+
     }
 
     // [START task_to_map]
@@ -43,13 +52,16 @@ public class Task {
         result.put("uid", uid);
         result.put("author", author);
         result.put("description", description);
-        result.put("starCount", starCount);
-        result.put("stars", stars);
-        result.put("location", location);
-        result.put("pooling", pooling);
+        result.put("poolingmin", poolingmin);
+        result.put("participants", participants);
+        result.put("lightson", lightson);
+        result.put("authorinout", authorinout);
         result.put("date", date);
+        result.put("weekday", weekday);
         result.put("time", time);
-        result.put("category", category);
+        result.put("location", location);
+        result.put("stars", stars);
+        result.put("starCount", starCount);
 
         return result;
     }
