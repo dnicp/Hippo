@@ -23,13 +23,14 @@ public class Task {
     public String time;
     public String location;
     public int starCount = 0;
+
     public Map<String, Boolean> stars = new HashMap<>();
 
     public Task() {
         // Default constructor required for calls to DataSnapshot.getValue(Task.class)
     }
 
-    public Task(String uid, String author, String description, int poolingmin, int participants, boolean lightson, boolean authorinout, String date, String weekday, String time, String location, int starCount) {
+    public Task(String uid, String author, String description, int poolingmin, int participants, boolean lightson, boolean authorinout, String date, String weekday, String time, String location) {
         this.uid = uid;
         this.author = author;
         this.description = description;
