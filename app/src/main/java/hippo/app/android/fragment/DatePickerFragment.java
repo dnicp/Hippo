@@ -28,9 +28,7 @@ public class DatePickerFragment extends DialogFragment
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        // Do something with the date chosen by the user
-//String date = year + "" + month + "" + day;
-//        Toast.makeText(view.getContext(),date, Toast.LENGTH_SHORT).show();
+
         
     }
 }

@@ -79,6 +79,8 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
                 submitTask();
             }
         });
+        mTaskTime = (TextView) findViewById(R.id.task_time);
+        mTaskDate = (TextView) findViewById(R.id.task_date);
 
         mTime = (ImageView) findViewById(R.id.showTimePicker);
         mDate = (ImageView) findViewById(R.id.showDatePicker);
