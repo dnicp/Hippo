@@ -36,6 +36,7 @@ public class Task {
         this.location = location;
         this.date = date;
         this.time = time;
+        this.minPooling = minPooling;
 
     }
 
@@ -46,13 +47,12 @@ public class Task {
         result.put("uid", uid);
         result.put("author", author);
         result.put("description", description);
-       result.put("starCount", starCount);
-        result.put("minPooling",minPooling);
+        result.put("starCount", starCount);
+        result.put("minPooling", minPooling);
         result.put("stars", stars);
         result.put("location", location);
         result.put("date", date);
         result.put("time", time);
-//        result.put ("minPooling", vminPooling);
 
 
         return result;

@@ -43,7 +43,6 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         dateView.setText(task.date);
         locationView.setText(task.location);
         starView.setOnClickListener(starClickListener);
-        lightsOnOffView.setImageResource(ic_lightsoff);
 
     }
 }

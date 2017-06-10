@@ -92,7 +92,7 @@ public class AllTasksFragment extends Fragment {
 
                 int vStartCount = model.starCount;
                 int vMinPooling = model.minPooling;
-                if(vStartCount>=vMinPooling){
+                if(vStartCount >= vMinPooling){
                     viewHolder.lightsOnOffView.setImageResource(R.drawable.ic_lightson);
                 } else {
                     viewHolder.lightsOnOffView.setImageResource(R.drawable.ic_lightsoff);
