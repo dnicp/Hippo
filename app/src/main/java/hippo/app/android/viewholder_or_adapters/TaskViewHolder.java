@@ -14,8 +14,9 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
     public TextView authorView;
     public ImageView starView;
     public TextView numStarsView;
-    public TextView descriptionView;
     public TextView locationView;
+    public TextView timeView;
+    public TextView dateView;
 
     public TaskViewHolder(View itemView) {
         super(itemView);
@@ -23,8 +24,9 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         authorView = (TextView) itemView.findViewById(R.id.task_author);
         starView = (ImageView) itemView.findViewById(R.id.star);
         numStarsView = (TextView) itemView.findViewById(R.id.task_num_stars);
-        descriptionView = (TextView) itemView.findViewById(R.id.task_description);
         locationView = (TextView) itemView.findViewById(R.id.task_location);
+        timeView = (TextView) itemView.findViewById(R.id.task_time);
+        dateView = (TextView) itemView.findViewById(R.id.task_date);
 
     }
 
@@ -32,8 +34,9 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         authorView.setText(task.author);
         numStarsView.setText(String.valueOf(task.starCount));
         starView.setOnClickListener(starClickListener);
-        descriptionView.setText(task.description);
         locationView.setText(task.location);
+        timeView = (TextView) itemView.findViewById(R.id.task_time);
+        dateView = (TextView) itemView.findViewById(R.id.task_date);
 
 
 
