@@ -16,7 +16,6 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
     public TextView locationView;
     public TextView timeView;
     public TextView dateView;
-    public TextView minPoolingView;
 
 
 
@@ -29,7 +28,6 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         locationView = (TextView) itemView.findViewById(R.id.task_location_comment);
         timeView = (TextView) itemView.findViewById(R.id.task_time_comment);
         dateView = (TextView) itemView.findViewById(R.id.task_date_comment);
-        minPoolingView = (TextView) itemView.findViewById(R.id.task_poolingMin);
 
 
     }
