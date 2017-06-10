@@ -95,7 +95,7 @@
                     android:src="@drawable/ic_pooling" />
 
                 <TextView
-                    android:id="@+id/task_pooling"
+                    android:id="@+id/task_minPooling"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@id/task_poolingimage"

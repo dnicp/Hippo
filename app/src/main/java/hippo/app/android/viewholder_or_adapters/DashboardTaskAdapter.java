@@ -56,7 +56,7 @@ public class DashboardTaskAdapter extends ArrayAdapter<DashboardTaskDetail> {
         ImageView inoutView = (ImageView) listItemView.findViewById(R.id.task_inout);
         inoutView.setImageResource(currentTask.getmInOutImageSourceId());
 
-        TextView poolingView = (TextView) listItemView.findViewById(R.id.task_pooling);
+        TextView poolingView = (TextView) listItemView.findViewById(R.id.task_minPooling);
         poolingView.setText(currentTask.getmPooling());
 
         TextView tasklocationView = (TextView) listItemView.findViewById(R.id.task_location);
