@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import hippo.app.android.models.Task;
 
 
@@ -19,6 +22,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
     public TextView minPoolingView;
 
 
+
     public TaskViewHolder(View itemView) {
         super(itemView);
 
@@ -30,6 +34,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         dateView = (TextView) itemView.findViewById(R.id.task_date_comment);
         minPoolingView = (TextView) itemView.findViewById(R.id.task_poolingMin);
 
+
     }
 
     public void bindToTask(Task task, View.OnClickListener starClickListener) {
@@ -39,6 +44,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         dateView.setText(task.date);
         locationView.setText(task.location);
         starView.setOnClickListener(starClickListener);
+
 
 
 

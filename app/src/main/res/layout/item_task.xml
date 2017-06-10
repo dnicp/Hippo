@@ -75,13 +75,6 @@
                     android:text="04 April"
                     android:textSize="30dp" />
 
-                <TextView
-                    android:id="@+id/task_weekday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Monday"
-                    android:textSize="16dp" />
-
 
             </LinearLayout>
 

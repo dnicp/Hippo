@@ -16,6 +16,7 @@ public class Task {
     public String location;
     public String date;
     public String time;
+    public String weekday;
     public int minPooling;
     public int starCount = 0;
     public Map<String, Boolean> stars = new HashMap<>();
@@ -32,6 +33,7 @@ public class Task {
         this.date = date;
         this.time = time;
         this.minPooling =  minPooling;
+
 
     }
 

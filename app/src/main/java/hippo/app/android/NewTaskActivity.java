@@ -44,6 +44,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     private ImageView mDate;
     private TextView mTaskTime;
     private TextView mTaskDate;
+    private TextView mWeekday;
     private EditText mMinPooling;
 
     private FloatingActionButton mSubmitButton;
@@ -116,6 +117,9 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
         final String time = mTaskTime.getText().toString();
         final int minPooling = Integer.parseInt(mMinPooling.getText().toString());
 
+
+       // Toast.makeText(this.getBaseContext(), weekday, Toast.LENGTH_SHORT).show();
+
         // Description is required
         if (TextUtils.isEmpty(description)) {
             mTaskDescription.setError(REQUIRED);
@@ -128,6 +132,12 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
             return;
         }
 
+        // minPooling is required
+
+        if (TextUtils.isEmpty(location)) {
+            mMinPooling.setError(REQUIRED);
+            return;
+        }
 
         // Date is required
         if (TextUtils.isEmpty(date)) {
