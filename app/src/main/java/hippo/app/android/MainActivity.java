@@ -13,7 +13,6 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import hippo.app.android.fragment_UI.DashboardViewFragment;
 import hippo.app.android.fragment_UI.AllTasksFragment;
 
 /** Main thread + dot dot menu items */
@@ -40,11 +39,9 @@ public class MainActivity extends BaseActivity {
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[]{
                     new AllTasksFragment(),
-                    new DashboardViewFragment(),
             };
             private final String[] mFragmentNames = new String[]{
                     "All Tasks",
-                    "Dashboard",
             };
 
             @Override
