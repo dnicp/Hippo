@@ -7,7 +7,7 @@
 
 
     <TextView
-        android:id="@+id/task_cat"
+        android:id="@+id/task_category"
         android:text="Task Category (autofill)"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,10 +17,10 @@
         android:layout_marginTop="16dp" />
 
     <TextView
-        android:id="@+id/task_des"
+        android:id="@+id/task_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/task_cat"
+        android:layout_below="@id/task_category"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -31,7 +31,7 @@
         android:id="@+id/task_pooling"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/task_des"
+        android:layout_below="@id/task_description"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -63,7 +63,7 @@
         />
 
     <TextView
-        android:id="@+id/task_loc"
+        android:id="@+id/task_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/task_time"

@@ -16,8 +16,6 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".NewCarActivity"
             android:label="New Task"/>
-        <activity android:name=".NewEventsActivity"
-            android:label="New Task"/>
         <activity android:name=".CategoryActivity"
             android:label="Select task category"/>
         <activity android:name=".SignInActivity">

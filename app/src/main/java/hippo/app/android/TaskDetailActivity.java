@@ -68,8 +68,8 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
 
         // Initialize Views
         mAuthorView = (TextView) findViewById(R.id.task_author);
-        mDesView = (TextView) findViewById(R.id.task_des);
-        mLocView = (TextView) findViewById(R.id.task_loc);
+        mDesView = (TextView) findViewById(R.id.task_description);
+        mLocView = (TextView) findViewById(R.id.task_location);
         mPoolingView = (TextView) findViewById(R.id.task_pooling);
         mDate = (TextView) findViewById(R.id.task_date);
         mTime = (TextView) findViewById(R.id.task_time);
@@ -98,7 +98,6 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
                 mAuthorView.setText(task.author);
                 mDesView.setText(task.description);
                 mLocView.setText(task.location);
-                mPoolingView.setText(task.pooling);
                 mDate.setText(task.date);
                 mTime.setText(task.time);
                 // [END_EXCLUDE]

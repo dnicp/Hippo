@@ -15,7 +15,6 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
     public TextView numStarsView;
     public TextView descriptionView;
     public TextView locationView;
-    public TextView poolingView;
 
     public TaskViewHolder(View itemView) {
         super(itemView);
@@ -23,9 +22,8 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         authorView = (TextView) itemView.findViewById(R.id.task_author);
         starView = (ImageView) itemView.findViewById(R.id.star);
         numStarsView = (TextView) itemView.findViewById(R.id.task_num_stars);
-        descriptionView = (TextView) itemView.findViewById(R.id.task_des);
-        locationView = (TextView) itemView.findViewById(R.id.task_loc);
-        poolingView = (TextView) itemView.findViewById(R.id.task_pooling);
+        descriptionView = (TextView) itemView.findViewById(R.id.task_description);
+        locationView = (TextView) itemView.findViewById(R.id.task_location);
     }
 
     public void bindToTask(Task task, View.OnClickListener starClickListener) {
@@ -34,7 +32,6 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         starView.setOnClickListener(starClickListener);
         descriptionView.setText(task.description);
         locationView.setText(task.location);
-        poolingView.setText(task.pooling);
 
 
     }

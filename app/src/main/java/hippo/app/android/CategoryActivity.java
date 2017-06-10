@@ -30,7 +30,7 @@ public class CategoryActivity extends BaseActivity {
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CategoryActivity.this, NewEventsActivity.class));
+                startActivity(new Intent(CategoryActivity.this, NewCarActivity.class));
                 finish();
             }
         });
