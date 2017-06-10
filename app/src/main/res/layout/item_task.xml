@@ -29,21 +29,18 @@
 
             <ImageView
                 android:id="@+id/star"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
-                android:background="?attr/selectableItemBackground"
                 android:src="@drawable/ic_notin" />
-
 
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_below="@id/task_author_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/task_author_layout"
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="1">
@@ -52,24 +49,23 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.5"
                 android:orientation="vertical"
-                android:padding="5dp"
-                android:layout_weight="0.3">
+                android:padding="5dp">
 
                 <TextView
                     android:id="@+id/task_time_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
                     android:text="9:00"
-                    android:textSize="16dp"
-                    android:layout_marginBottom="20dp"/>
+                    android:textSize="16dp" />
 
                 <TextView
                     android:id="@+id/task_date_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="2"
                     android:text="04/04/2017"
                     android:textSize="16dp" />
 
@@ -81,14 +77,15 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
+                android:layout_weight="0"
                 android:background="@color/cardview_dark_background" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.5"
                 android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_weight="0.7">
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -115,19 +112,10 @@
                         android:padding="5dp"
                         android:src="@drawable/ic_lightson" />
 
-                    <ImageView
-                        android:id="@+id/task_inout"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_weight="0.25"
-                        android:padding="5dp"
-                        android:src="@drawable/ic_notin" />
-
                     <RelativeLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_weight="0.25"
-                        >
+                        android:layout_weight="0.25">
 
 
                         <ImageView
@@ -142,13 +130,13 @@
                             android:id="@+id/task_num_stars"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
                             android:gravity="center"
-                            tools:text="7"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
                             android:textSize="16dp"
-                            android:layout_alignParentBottom="true"
-                            android:layout_centerHorizontal="true"/>
+                            tools:text="7" />
 
                     </RelativeLayout>
                 </LinearLayout>
