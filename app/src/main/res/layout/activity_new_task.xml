@@ -40,8 +40,9 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
-            android:textSize="20dp"
+            android:textSize="16dp"
             android:hint="min people pooling"
+            android:inputType="number"
             android:maxLines="1"/>
 
 

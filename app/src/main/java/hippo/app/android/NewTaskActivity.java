@@ -196,11 +196,11 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     }
 
     // [START write_fan_out]
-    private void writeNewPost(String userId, String username, String description, String location, String date, String time, int minpooling) {
+    private void writeNewPost(String userId, String username, String description, String location, String date, String time, int minPooling) {
         // Create new task at /user-tasks/$userid/$taskid and at
         // /tasks/$taskid simultaneously
         String key = mDatabase.child("tasks").push().getKey();
-        Task task = new Task(userId, username, description, location, date,time, minpooling);
+        Task task = new Task(userId, username, description, location, date,time, minPooling);
         Map<String, Object> postValues = task.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();

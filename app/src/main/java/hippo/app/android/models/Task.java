@@ -47,7 +47,7 @@ public class Task {
         result.put("location", location);
         result.put("date", date);
         result.put("time", time);
-        result.put ("min", minPooling);
+        result.put ("minPooling", minPooling);
 
 
         return result;
