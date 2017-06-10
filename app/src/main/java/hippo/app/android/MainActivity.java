@@ -13,8 +13,8 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import hippo.app.android.fragment.DashboardViewFragment;
-import hippo.app.android.fragment.RecentTasksFragment;
+import hippo.app.android.fragment_UI.DashboardViewFragment;
+import hippo.app.android.fragment_UI.AllTasksFragment;
 
 /** Main thread + dot dot menu items */
 
@@ -39,11 +39,11 @@ public class MainActivity extends BaseActivity {
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[]{
-                    new RecentTasksFragment(),
+                    new AllTasksFragment(),
                     new DashboardViewFragment(),
             };
             private final String[] mFragmentNames = new String[]{
-                    getString(R.string.heading_recent),
+                    "All Tasks",
                     "Dashboard",
             };
 
@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        // Button launches NewCarActivity
+        // Button launches NewTaskActivity
         findViewById(R.id.fab_new_task).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

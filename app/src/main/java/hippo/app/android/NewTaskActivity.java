@@ -24,16 +24,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
-import hippo.app.android.fragment.DatePickerFragment;
-import hippo.app.android.fragment.TimePickerFragment;
+import hippo.app.android.fragment_UI.DatePickerFragment;
+import hippo.app.android.fragment_UI.TimePickerFragment;
 import hippo.app.android.models.Task;
 import hippo.app.android.models.User;
 
 
-public class NewCarActivity extends hippo.app.android.BaseActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+public class NewTaskActivity extends hippo.app.android.BaseActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
 
-    private static final String TAG = "NewCarActivity";
+    private static final String TAG = "NewTaskActivity";
     private static final String REQUIRED = "Required";
 
     private DatabaseReference mDatabase;
@@ -156,7 +156,7 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
                         if (user == null) {
                             // User is null, error out
                             Log.e(TAG, "User " + userId + " is unexpectedly null");
-                            Toast.makeText(NewCarActivity.this,
+                            Toast.makeText(NewTaskActivity.this,
                                     "Error: could not fetch user.",
                                     Toast.LENGTH_SHORT).show();
                         } else {

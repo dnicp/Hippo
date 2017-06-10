@@ -23,14 +23,14 @@ public class CategoryActivity extends BaseActivity {
         car.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CategoryActivity.this, NewCarActivity.class));
+                startActivity(new Intent(CategoryActivity.this, NewTaskActivity.class));
             }
         });
 
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CategoryActivity.this, NewCarActivity.class));
+                startActivity(new Intent(CategoryActivity.this, NewTaskActivity.class));
                 finish();
             }
         });

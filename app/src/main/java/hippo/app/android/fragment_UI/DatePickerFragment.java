@@ -1,4 +1,4 @@
-package hippo.app.android.fragment;
+package hippo.app.android.fragment_UI;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -8,7 +8,7 @@ import android.widget.DatePicker;
 
 import java.util.Calendar;
 
-import hippo.app.android.NewCarActivity;
+import hippo.app.android.NewTaskActivity;
 
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
@@ -23,7 +23,7 @@ public class DatePickerFragment extends DialogFragment
         int day = c.get(Calendar.DAY_OF_MONTH);
 
         // Create a new instance of DatePickerDialog and return it
-        return new DatePickerDialog(getActivity(), (NewCarActivity)getActivity(), year, month, day);
+        return new DatePickerDialog(getActivity(), (NewTaskActivity)getActivity(), year, month, day);
 
     }
 

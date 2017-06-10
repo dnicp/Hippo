@@ -1,4 +1,4 @@
-package hippo.app.android.fragment;
+package hippo.app.android.fragment_UI;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

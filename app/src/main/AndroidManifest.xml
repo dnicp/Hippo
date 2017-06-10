@@ -14,7 +14,7 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
-        <activity android:name=".NewCarActivity"
+        <activity android:name=".NewTaskActivity"
             android:label="New Task"/>
         <activity android:name=".CategoryActivity"
             android:label="Select task category"/>

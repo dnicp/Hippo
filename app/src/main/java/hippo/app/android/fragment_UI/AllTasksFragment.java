@@ -1,4 +1,4 @@
-package hippo.app.android.fragment;
+package hippo.app.android.fragment_UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,9 +25,9 @@ import hippo.app.android.TaskDetailActivity;
 import hippo.app.android.TaskViewHolder;
 import hippo.app.android.models.Task;
 
-public class RecentTasksFragment extends Fragment {
+public class AllTasksFragment extends Fragment {
 
-    public RecentTasksFragment() {}
+    public AllTasksFragment() {}
 
 
     public Query getQuery(DatabaseReference databaseReference) {

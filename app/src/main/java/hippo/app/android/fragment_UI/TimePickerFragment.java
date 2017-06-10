@@ -1,4 +1,4 @@
-package hippo.app.android.fragment;
+package hippo.app.android.fragment_UI;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -9,7 +9,7 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 
-import hippo.app.android.NewCarActivity;
+import hippo.app.android.NewTaskActivity;
 
 public class TimePickerFragment extends DialogFragment
         implements TimePickerDialog.OnTimeSetListener {
@@ -22,7 +22,7 @@ public class TimePickerFragment extends DialogFragment
         int minute = c.get(Calendar.MINUTE);
 
         // Create a new instance of TimePickerDialog and return it
-        return new TimePickerDialog(getActivity(), (NewCarActivity)getActivity(), hour, minute,
+        return new TimePickerDialog(getActivity(), (NewTaskActivity)getActivity(), hour, minute,
                 DateFormat.is24HourFormat(getActivity()));
     }
 
