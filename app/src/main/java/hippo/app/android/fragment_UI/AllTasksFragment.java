@@ -82,11 +82,23 @@ public class AllTasksFragment extends Fragment {
         Query taskQuery = getQuery(mDatabase);
         mAdapter = new FirebaseRecyclerAdapter<Task, TaskViewHolder>(Task.class, R.layout.item_task,
                 TaskViewHolder.class, taskQuery) {
+
+            // using viewholder to insert FB data in the form of item_task to the container
             @Override
             protected void populateViewHolder(final TaskViewHolder viewHolder, final Task model, final int position) {
                 final DatabaseReference taskRef = getRef(position);
 
+// do something here to show lightson/off starts
 
+                int vStartCount = model.starCount;
+                int vMinPooling = model.minPooling;
+                if(vStartCount>=vMinPooling){
+                    viewHolder.lightsOnOffView.setImageResource(R.drawable.ic_lightson);
+                } else {
+                    viewHolder.lightsOnOffView.setImageResource(R.drawable.ic_lightsoff);
+                }
+
+// do something here to show lightson/off finish
 
                 // Set click listener for the whole task view
                 final String taskKey = taskRef.getKey();
