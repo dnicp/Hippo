@@ -67,10 +67,10 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
 
         // Initialize Views
         mAuthorView = (TextView) findViewById(R.id.task_author);
-        mDesView = (TextView) findViewById(R.id.task_description);
-        mLocView = (TextView) findViewById(R.id.task_location);
-        mDate = (TextView) findViewById(R.id.task_date);
-        mTime = (TextView) findViewById(R.id.task_time);
+        mDesView = (TextView) findViewById(R.id.task_description_comment);
+        mLocView = (TextView) findViewById(R.id.task_location_comment);
+        mDate = (TextView) findViewById(R.id.task_date_comment);
+        mTime = (TextView) findViewById(R.id.task_time_comment);
 
         mCommentField = (EditText) findViewById(R.id.field_comment_text);
         mCommentButton = (Button) findViewById(R.id.button_task_comment);

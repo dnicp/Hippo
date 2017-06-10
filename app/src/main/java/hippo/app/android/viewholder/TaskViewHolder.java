@@ -2,7 +2,6 @@ package hippo.app.android;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +16,8 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
     public TextView locationView;
     public TextView timeView;
     public TextView dateView;
+    public TextView minPoolingView;
+
 
     public TaskViewHolder(View itemView) {
         super(itemView);
@@ -24,19 +25,21 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         authorView = (TextView) itemView.findViewById(R.id.task_author);
         starView = (ImageView) itemView.findViewById(R.id.star);
         numStarsView = (TextView) itemView.findViewById(R.id.task_num_stars);
-        locationView = (TextView) itemView.findViewById(R.id.task_location);
-        timeView = (TextView) itemView.findViewById(R.id.task_time);
-        dateView = (TextView) itemView.findViewById(R.id.task_date);
+        locationView = (TextView) itemView.findViewById(R.id.task_location_comment);
+        timeView = (TextView) itemView.findViewById(R.id.task_time_comment);
+        dateView = (TextView) itemView.findViewById(R.id.task_date_comment);
+        minPoolingView = (TextView) itemView.findViewById(R.id.task_poolingMin);
 
     }
 
     public void bindToTask(Task task, View.OnClickListener starClickListener) {
         authorView.setText(task.author);
         numStarsView.setText(String.valueOf(task.starCount));
-        starView.setOnClickListener(starClickListener);
+        timeView.setText(task.time);
+        dateView.setText(task.date);
         locationView.setText(task.location);
-        timeView = (TextView) itemView.findViewById(R.id.task_time);
-        dateView = (TextView) itemView.findViewById(R.id.task_date);
+        starView.setOnClickListener(starClickListener);
+
 
 
 

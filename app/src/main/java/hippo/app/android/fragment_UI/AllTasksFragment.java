@@ -86,6 +86,8 @@ public class AllTasksFragment extends Fragment {
             protected void populateViewHolder(final TaskViewHolder viewHolder, final Task model, final int position) {
                 final DatabaseReference taskRef = getRef(position);
 
+
+
                 // Set click listener for the whole task view
                 final String taskKey = taskRef.getKey();
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {

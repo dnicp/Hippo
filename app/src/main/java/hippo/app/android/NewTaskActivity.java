@@ -68,8 +68,8 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
         // [START initialize_database_ref]
         mDatabase = FirebaseDatabase.getInstance().getReference();
         // [END initialize_database_ref]
-        mTaskDescription = (EditText) findViewById(R.id.task_description);
-        mTaskLocation = (EditText) findViewById(R.id.task_location);
+        mTaskDescription = (EditText) findViewById(R.id.task_description_comment);
+        mTaskLocation = (EditText) findViewById(R.id.task_location_comment);
 
 
         mSubmitButton = (FloatingActionButton) findViewById(R.id.fab_submit_task);
@@ -80,8 +80,8 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
                 submitTask();
             }
         });
-        mTaskTime = (TextView) findViewById(R.id.task_time);
-        mTaskDate = (TextView) findViewById(R.id.task_date);
+        mTaskTime = (TextView) findViewById(R.id.task_time_comment);
+        mTaskDate = (TextView) findViewById(R.id.task_date_comment);
         mMinPooling = (EditText) findViewById(R.id.task_poolingMin);
 
         mTime = (ImageView) findViewById(R.id.showTimePicker);

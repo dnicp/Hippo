@@ -7,7 +7,7 @@
 
 
     <TextView
-        android:id="@+id/task_category"
+        android:id="@+id/task_category_comment"
         android:text="Task Category (autofill)"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,10 +17,10 @@
         android:layout_marginTop="16dp" />
 
     <TextView
-        android:id="@+id/task_description"
+        android:id="@+id/task_description_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/task_category"
+        android:layout_below="@id/task_category_comment"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -28,10 +28,10 @@
         android:text="Description"/>
 
     <TextView
-        android:id="@+id/task_date"
+        android:id="@+id/task_date_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/task_description"
+        android:layout_below="@id/task_description_comment"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -40,10 +40,10 @@
         />
 
     <TextView
-        android:id="@+id/task_time"
+        android:id="@+id/task_time_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/task_date"
+        android:layout_below="@id/task_date_comment"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -52,10 +52,10 @@
         />
 
     <TextView
-        android:id="@+id/task_location"
+        android:id="@+id/task_location_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/task_time"
+        android:layout_below="@+id/task_time_comment"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
