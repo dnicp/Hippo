@@ -44,6 +44,7 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
     private ImageView mDate;
     private TextView mTaskTime;
     private TextView mTaskDate;
+    private EditText mMinPooling;
 
     private FloatingActionButton mSubmitButton;
 
@@ -81,6 +82,7 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
         });
         mTaskTime = (TextView) findViewById(R.id.task_time);
         mTaskDate = (TextView) findViewById(R.id.task_date);
+        mMinPooling = (EditText) findViewById(R.id.task_poolingMin);
 
         mTime = (ImageView) findViewById(R.id.showTimePicker);
         mDate = (ImageView) findViewById(R.id.showDatePicker);
@@ -112,6 +114,7 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
         final String location = mTaskLocation.getText().toString();
         final String date = mTaskDate.getText().toString();
         final String time = mTaskTime.getText().toString();
+        final int minPooling = Integer.parseInt(mMinPooling.getText().toString());
 
         // Description is required
         if (TextUtils.isEmpty(description)) {
@@ -158,7 +161,7 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new post
-                            writeNewPost(userId, user.username, description, location,date,time);
+                            writeNewPost(userId, user.username, description, location,date,time,minPooling);
                         }
 
                         // Finish this Activity, back to the stream
@@ -193,11 +196,11 @@ public class NewCarActivity extends hippo.app.android.BaseActivity implements Da
     }
 
     // [START write_fan_out]
-    private void writeNewPost(String userId, String username, String description, String location, String date, String time) {
+    private void writeNewPost(String userId, String username, String description, String location, String date, String time, int minpooling) {
         // Create new task at /user-tasks/$userid/$taskid and at
         // /tasks/$taskid simultaneously
         String key = mDatabase.child("tasks").push().getKey();
-        Task task = new Task(userId, username, description, location, date,time);
+        Task task = new Task(userId, username, description, location, date,time, minpooling);
         Map<String, Object> postValues = task.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();

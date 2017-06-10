@@ -2,6 +2,7 @@ package hippo.app.android;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         numStarsView = (TextView) itemView.findViewById(R.id.task_num_stars);
         descriptionView = (TextView) itemView.findViewById(R.id.task_description);
         locationView = (TextView) itemView.findViewById(R.id.task_location);
+
     }
 
     public void bindToTask(Task task, View.OnClickListener starClickListener) {
@@ -32,6 +34,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         starView.setOnClickListener(starClickListener);
         descriptionView.setText(task.description);
         locationView.setText(task.location);
+
 
 
     }
