@@ -78,7 +78,7 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
 
         mCommentButton.setOnClickListener(this);
         mCommentsRecycler.setLayoutManager(new LinearLayoutManager(this));
-        
+
 
     }
 

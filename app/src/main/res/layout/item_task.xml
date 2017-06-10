@@ -50,21 +50,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="1">
 
             <LinearLayout
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:layout_weight="0.3">
 
                 <TextView
                     android:id="@+id/task_time_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="9:00"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:layout_marginBottom="20dp"/>
 
                 <TextView
                     android:id="@+id/task_date_comment"
@@ -72,8 +75,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="2"
-                    android:text="04 April"
-                    android:textSize="30dp" />
+                    android:text="04/04/2017"
+                    android:textSize="16dp" />
 
 
             </LinearLayout>
@@ -89,27 +92,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:layout_weight="0.7">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
                     <ImageView
                         android:id="@+id/task_category_comment"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_weight="3"
+                        android:layout_weight="0.25"
                         android:padding="5dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_car" />
+                        android:src="@drawable/ic_car"
+
+                        />
 
                     <ImageView
                         android:id="@+id/task_onoff"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_weight="3"
+                        android:layout_weight="0.25"
                         android:padding="5dp"
                         android:src="@drawable/ic_lightson" />
 
@@ -117,13 +124,14 @@
                         android:id="@+id/task_inout"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_weight="3"
+                        android:layout_weight="0.25"
                         android:padding="5dp"
                         android:src="@drawable/ic_notin" />
 
                     <RelativeLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
+                        android:layout_weight="0.25"
                         >
 
 
