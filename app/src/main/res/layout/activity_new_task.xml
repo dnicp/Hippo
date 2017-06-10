@@ -10,27 +10,41 @@
         android:orientation="vertical">
 
 
-    <TextView
-    android:id="@+id/task_category"
-    android:text="Task Category (autofill)"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginTop="16dp" />
-
-    <EditText
-        android:id="@+id/task_description"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/task_category"
+        android:orientation="horizontal"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
-        android:hint="Task Description"
-        android:maxLines="3" />
+        android:layout_marginTop="16dp">
+        <ImageView
+            android:id="@+id/task_categoryImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_car"/>
+        <TextView
+            android:id="@+id/task_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:text="Shared Drive"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/task_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/task_category"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="Task Description"
+            android:maxLines="3" />
 
         <EditText
             android:id="@+id/task_poolingMin"
