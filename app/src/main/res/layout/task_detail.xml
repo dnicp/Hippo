@@ -176,6 +176,7 @@
 
     <LinearLayout
         android:id="@+id/comment_form"
+        android:focusableInTouchMode="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/newlayout"
@@ -188,6 +189,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
+            android:nextFocusUp="@id/field_comment_text"
+            android:nextFocusLeft="@id/field_comment_text"
             android:hint="Write a comment..."
             android:maxLines="1" />
 

@@ -52,7 +52,7 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task_detail);
+        setContentView(R.layout.task_detail);
 
         // Get task key from intent
         mTaskKey = getIntent().getStringExtra(EXTRA_TASK_KEY);
