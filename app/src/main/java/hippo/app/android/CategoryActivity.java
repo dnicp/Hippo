@@ -24,6 +24,8 @@ public class CategoryActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CategoryActivity.this, NewTaskActivity.class));
+                passOnCategory =  "car";
+                finish();
             }
         });
 
@@ -31,6 +33,7 @@ public class CategoryActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CategoryActivity.this, NewTaskActivity.class));
+                passOnCategory =  "events";
                 finish();
             }
         });

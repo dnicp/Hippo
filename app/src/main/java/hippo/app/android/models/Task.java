@@ -12,6 +12,7 @@ public class Task {
 
     public String uid;
     public String author;
+    public String category;
     public String description;
     public String location;
     public String date;
@@ -29,9 +30,10 @@ public class Task {
         // Default constructor required for calls to DataSnapshot.getValue(Task.class)
     }
 
-    public Task(String uid, String author, String description, String location, String date, String time, int minPooling) {
+    public Task(String uid, String author, String category, String description, String location, String date, String time, int minPooling) {
         this.uid = uid;
         this.author = author;
+        this.category = category;
         this.description = description;
         this.location = location;
         this.date = date;
@@ -46,6 +48,7 @@ public class Task {
         HashMap<String, Object> result = new HashMap<>();
         result.put("uid", uid);
         result.put("author", author);
+        result.put("category", category);
         result.put("description", description);
         result.put("starCount", starCount);
         result.put("minPooling", minPooling);

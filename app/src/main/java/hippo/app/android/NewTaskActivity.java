@@ -38,6 +38,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
 
     private DatabaseReference mDatabase;
 
+    private TextView mTaskCategory;
     private EditText mTaskDescription;
     private EditText mTaskLocation;
     private ImageView mTime;
@@ -64,11 +65,16 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_task);
+        setContentView(R.layout.new_task_activity);
 
         // [START initialize_database_ref]
         mDatabase = FirebaseDatabase.getInstance().getReference();
         // [END initialize_database_ref]
+
+        mTaskCategory = (TextView) findViewById(R.id.task_category_comment);
+        // inflate the category view with the value
+        mTaskCategory.setText(passOnCategory);
+
         mTaskDescription = (EditText) findViewById(R.id.task_description_comment);
         mTaskLocation = (EditText) findViewById(R.id.task_location_comment);
 
@@ -111,6 +117,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     }
 
     private void submitTask() {
+        final String category = passOnCategory;
         final String description = mTaskDescription.getText().toString();
         final String location = mTaskLocation.getText().toString();
         final String date = mTaskDate.getText().toString();
@@ -171,7 +178,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new post
-                            writeNewPost(userId, user.username, description, location,date,time,minPooling);
+                            writeNewPost(userId, user.username, category, description, location,date,time,minPooling);
                         }
 
                         // Finish this Activity, back to the stream
@@ -206,11 +213,11 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     }
 
     // [START write_fan_out]
-    private void writeNewPost(String userId, String username, String description, String location, String date, String time, int minPooling) {
+    private void writeNewPost(String userId, String username, String category, String description, String location, String date, String time, int minPooling) {
         // Create new task at /user-tasks/$userid/$taskid and at
         // /tasks/$taskid simultaneously
         String key = mDatabase.child("tasks").push().getKey();
-        Task task = new Task(userId, username, description, location, date,time, minPooling);
+        Task task = new Task(userId, username, category,description, location, date,time, minPooling);
         Map<String, Object> postValues = task.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();
