@@ -24,8 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
-import hippo.app.android.fragment_UI.DatePickerFragment;
-import hippo.app.android.fragment_UI.TimePickerFragment;
+import hippo.app.android.dialog_fragments.DatePickerFragment;
+import hippo.app.android.dialog_fragments.TimePickerFragment;
 import hippo.app.android.models.Task;
 import hippo.app.android.models.User;
 

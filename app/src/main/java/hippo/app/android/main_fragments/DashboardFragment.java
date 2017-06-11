@@ -1,4 +1,4 @@
-package hippo.app.android.fragment_UI;
+package hippo.app.android.main_fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,20 +25,19 @@ import hippo.app.android.TaskDetailActivity;
 import hippo.app.android.TaskViewHolder;
 import hippo.app.android.models.Task;
 
-public class AllTasksFragment extends Fragment {
+public class DashboardFragment extends Fragment {
 
-    public AllTasksFragment() {}
+    public DashboardFragment() {}
 
 
     public Query getQuery(DatabaseReference databaseReference) {
         // [START recent_tasks_query]
         // Last 100 tasks, these are automatically the 100 most recent
         // due to sorting by push() keys
-        Query recentTasksQuery = databaseReference.child("tasks")
-                .limitToFirst(100);
+        Query tasksQuery = databaseReference.child("tasks");
         // [END recent_tasks_query]
 
-        return recentTasksQuery;
+        return tasksQuery;
     }
 
     private static final String TAG = "RecentTaskFragment";
@@ -80,10 +79,10 @@ public class AllTasksFragment extends Fragment {
 
         // Set up FirebaseRecyclerAdapter with the Query
         Query taskQuery = getQuery(mDatabase);
-        mAdapter = new FirebaseRecyclerAdapter<Task, TaskViewHolder>(Task.class, R.layout.item_task,
+        mAdapter = new FirebaseRecyclerAdapter<Task, TaskViewHolder>(Task.class, R.layout.task_dashboard,
                 TaskViewHolder.class, taskQuery) {
 
-            // using viewholder to insert FB data in the form of item_task to the container
+            // using viewholder to insert FB data in the form of task_dashboard to the container
             @Override
             protected void populateViewHolder(final TaskViewHolder viewHolder, final Task model, final int position) {
                 final DatabaseReference taskRef = getRef(position);
