@@ -65,7 +65,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_task_activity);
+        setContentView(R.layout.new_task);
 
         // [START initialize_database_ref]
         mDatabase = FirebaseDatabase.getInstance().getReference();

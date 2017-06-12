@@ -295,7 +295,7 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
         @Override
         public CommentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(mContext);
-            View view = inflater.inflate(R.layout.item_comment, parent, false);
+            View view = inflater.inflate(R.layout.new_comment, parent, false);
             return new CommentViewHolder(view);
         }
 

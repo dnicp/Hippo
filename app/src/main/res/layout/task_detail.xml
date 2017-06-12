@@ -19,7 +19,7 @@
 
     <include
         android:id="@+id/task_author_layout"
-        layout="@layout/include_task_author"
+        layout="@layout/task_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true" />
@@ -209,7 +209,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/comment_form"
-        tools:listitem="@layout/item_comment" />
+        tools:listitem="@layout/new_comment" />
 
 </RelativeLayout>
 

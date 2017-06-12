@@ -15,7 +15,7 @@ public class CategoryActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category);
+        setContentView(R.layout.category_layout);
 
         car = (ImageView)findViewById(R.id.cat_car);
         events = (ImageView)findViewById(R.id.cat_events);

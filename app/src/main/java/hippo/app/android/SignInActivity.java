@@ -18,9 +18,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import hippo.app.android.BaseActivity;
-import hippo.app.android.MainActivity;
-import hippo.app.android.R;
 import hippo.app.android.models.User;
 
 public class SignInActivity extends BaseActivity implements View.OnClickListener {
@@ -38,7 +35,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.signin_layout);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
