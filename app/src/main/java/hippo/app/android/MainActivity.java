@@ -72,6 +72,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this, CategoryActivity.class));
             }
         });
+
     }
     // menu stuff starts
 
@@ -90,8 +91,14 @@ public class MainActivity extends BaseActivity {
             finish();
             return true;
         }
-        if (i == R.id.action_test) {
-            startActivity(new Intent(this,addContactActivity.class));
+        if (i == R.id.test_add_friends) {
+            startActivity(new Intent(this,addFriendsActivity.class));
+            finish();
+            return true;
+        }
+
+        if (i == R.id.test_show_friends) {
+            startActivity(new Intent(this,allFriendsActivity.class));
             finish();
             return true;
         }

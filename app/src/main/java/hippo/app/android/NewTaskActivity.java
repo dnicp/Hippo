@@ -193,7 +193,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
                     }
                 });
         // [END single_value_read]
-    clearToMainactivity();
+//    clearToMainactivity();
     }
 
     // function called to avoid double input?

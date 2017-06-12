@@ -24,7 +24,7 @@ import hippo.app.android.models.User;
  * Created by Daniel on 12/6/17.
  */
 
-public class addContactActivity extends BaseActivity {
+public class addFriendsActivity extends BaseActivity {
 
     private static final String TAG = "AddContactActivity";
     private static final String REQUIRED = "Required";
@@ -94,7 +94,7 @@ public class addContactActivity extends BaseActivity {
                         if (user == null) {
                             // User is null, error out
                             Log.e(TAG, "User " + userId + " is unexpectedly null");
-                            Toast.makeText(addContactActivity.this,
+                            Toast.makeText(addFriendsActivity.this,
                                     "Error: could not fetch user.",
                                     Toast.LENGTH_SHORT).show();
                         } else {

@@ -10,8 +10,14 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_test"
-        android:title="test"
+    android:id="@+id/test_add_friends"
+    android:title="add friends"
+    android:visible="true"
+    app:showAsAction="never" />
+
+    <item
+        android:id="@+id/test_show_friends"
+        android:title="show friends"
         android:visible="true"
         app:showAsAction="never" />
 </menu>
