@@ -91,7 +91,7 @@ public class MainActivity extends BaseActivity {
             return true;
         }
         if (i == R.id.action_test) {
-            startActivity(new Intent(this,CategoryActivity.class));
+            startActivity(new Intent(this,addContactActivity.class));
             finish();
             return true;
         }

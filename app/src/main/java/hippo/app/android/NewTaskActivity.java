@@ -124,9 +124,6 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
         final String time = mTaskTime.getText().toString();
         final int minPooling = Integer.parseInt(mMinPooling.getText().toString());
 
-
-       // Toast.makeText(this.getBaseContext(), weekday, Toast.LENGTH_SHORT).show();
-
         // Description is required
         if (TextUtils.isEmpty(description)) {
             mTaskDescription.setError(REQUIRED);
@@ -199,7 +196,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     clearToMainactivity();
     }
 
-    // what's going on here?
+    // function called to avoid double input?
     private void setEditingEnabled(boolean enabled) {
         mTaskDescription.setEnabled(enabled);
         mTaskLocation.setEnabled(enabled);
