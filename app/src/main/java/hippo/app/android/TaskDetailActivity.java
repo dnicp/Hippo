@@ -53,9 +53,8 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_detail);
-
-        // Get task key from intent
-        mTaskKey = getIntent().getStringExtra(EXTRA_TASK_KEY);
+                // Get task key from intent
+                mTaskKey = getIntent().getStringExtra(EXTRA_TASK_KEY);
         if (mTaskKey == null) {
             throw new IllegalArgumentException("Must pass EXTRA_TASK_KEY");
         }
@@ -292,7 +291,12 @@ public class TaskDetailActivity extends hippo.app.android.BaseActivity implement
             mChildEventListener = childEventListener;
         }
 
-
+        @Override
+        public CommentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            LayoutInflater inflater = LayoutInflater.from(mContext);
+            View view = inflater.inflate(R.layout.new_comment, parent, false);
+            return new CommentViewHolder(view);
+        }
 
         @Override
         public void onBindViewHolder(CommentViewHolder holder, int position) {
