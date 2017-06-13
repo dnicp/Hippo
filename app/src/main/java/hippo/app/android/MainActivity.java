@@ -92,13 +92,13 @@ public class MainActivity extends BaseActivity {
             return true;
         }
         if (i == R.id.test_add_friends) {
-            startActivity(new Intent(this,AddFriendsActivity.class));
+            startActivity(new Intent(this,addFriendsActivity.class));
             finish();
             return true;
         }
 
         if (i == R.id.test_show_friends) {
-            startActivity(new Intent(this,AllFriendsActivity.class));
+            startActivity(new Intent(this,allFriendsActivity.class));
             finish();
             return true;
         }

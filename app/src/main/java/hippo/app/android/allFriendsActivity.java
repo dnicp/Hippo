@@ -17,12 +17,12 @@ import hippo.app.android.models.Friend;
  * Created by Daniel on 12/6/17.
  */
 
-public class AllFriendsActivity extends BaseActivity
+public class allFriendsActivity extends BaseActivity
 
 {
 
     public static final String EXTRA_FRIEND_KEY = "task_key";
-    private static final String TAG = "AllFriendsActivity";
+    private static final String TAG = "allFriendsActivity";
     private String mFriendKey;
 
     private DatabaseReference mFriendReference = FirebaseDatabase.getInstance().getReference();

@@ -119,7 +119,7 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
         mAddFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(NewTaskActivity.this, AllFriendsActivity.class));
+                startActivity(new Intent(NewTaskActivity.this, allFriendsActivity.class));
 
             }
         });

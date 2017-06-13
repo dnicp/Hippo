@@ -25,11 +25,11 @@
             android:label="Select task category"
             android:parentActivityName=".MainActivity"/>
         <activity
-        android:name=".AddFriendsActivity"
+        android:name=".addFriendsActivity"
         android:label="add friends"
         android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".AllFriendsActivity"
+            android:name=".allFriendsActivity"
             android:label="all friends"
             android:parentActivityName=".MainActivity"/>
 
