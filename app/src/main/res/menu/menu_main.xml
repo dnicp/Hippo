@@ -15,9 +15,4 @@
     android:visible="true"
     app:showAsAction="never" />
 
-    <item
-        android:id="@+id/test_show_friends"
-        android:title="show friends"
-        android:visible="true"
-        app:showAsAction="never" />
 </menu>

@@ -97,11 +97,7 @@ public class MainActivity extends BaseActivity {
             return true;
         }
 
-        if (i == R.id.test_show_friends) {
-            startActivity(new Intent(this,allFriendsActivity.class));
-            finish();
-            return true;
-        }
+
         else {
             return super.onOptionsItemSelected(item);
         }

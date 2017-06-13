@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true" />
 
+
     <LinearLayout
         android:id="@+id/newlayout"
         android:layout_width="match_parent"

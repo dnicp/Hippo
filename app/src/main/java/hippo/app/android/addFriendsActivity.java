@@ -117,6 +117,7 @@ public class addFriendsActivity extends BaseActivity {
                     }
                 });
         // [END single_value_read]
+        finish();
 
     }
 
