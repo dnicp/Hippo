@@ -3,7 +3,6 @@ package hippo.app.android;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -21,30 +20,21 @@ public class allFriendsActivity extends BaseActivity
 
 {
 
-    public static final String EXTRA_FRIEND_KEY = "task_key";
-    private static final String TAG = "allFriendsActivity";
-    private String mFriendKey;
 
     private DatabaseReference mFriendReference = FirebaseDatabase.getInstance().getReference();
 
-    private TextView mFriendSurname;
-    private TextView mFriendGivenname;
-    private TextView mSampleSurname;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.allfriends);
+        setContentView(R.layout.allfriends_layout);
 // Initialize DB
         FirebaseRecyclerAdapter<Friend, hippo.app.android.FriendViewHolder> mAdapter;
         RecyclerView mFriendRecycler = (RecyclerView) findViewById(R.id.friends_list);
         mFriendReference = FirebaseDatabase.getInstance().getReference();
 
-        // Initialize Views
-        mFriendSurname = (TextView) findViewById(R.id.friend_surname);
-        mFriendGivenname = (TextView) findViewById(R.id.friend_givenname);
-        mSampleSurname = (TextView) findViewById(R.id.sample_surname);
 
         // Recycleview stuff
 

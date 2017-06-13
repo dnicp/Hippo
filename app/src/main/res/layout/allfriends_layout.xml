@@ -12,13 +12,6 @@
         android:text="I'm the friends list"
         />
 
-    <TextView
-        android:id="@+id/sample_surname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="someone's surname"
-        />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/friends_list"
         android:layout_width="match_parent"
