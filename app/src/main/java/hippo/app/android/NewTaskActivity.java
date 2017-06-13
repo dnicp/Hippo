@@ -2,6 +2,7 @@ package hippo.app.android;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
@@ -24,10 +25,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
-import hippo.app.android.dialog_fragments.DatePickerFragment;
-import hippo.app.android.dialog_fragments.TimePickerFragment;
 import hippo.app.android.models.Task;
 import hippo.app.android.models.User;
+import hippo.app.android.popup_fragments.DatePickerFragment;
+import hippo.app.android.popup_fragments.TimePickerFragment;
 
 
 public class NewTaskActivity extends hippo.app.android.BaseActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
@@ -45,8 +46,8 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
     private ImageView mDate;
     private TextView mTaskTime;
     private TextView mTaskDate;
-    private TextView mWeekday;
     private EditText mMinPooling;
+    private TextView mAddFriends;
 
     private FloatingActionButton mSubmitButton;
 
@@ -93,6 +94,8 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
 
         mTime = (ImageView) findViewById(R.id.showTimePicker);
         mDate = (ImageView) findViewById(R.id.showDatePicker);
+        mAddFriends = (TextView) findViewById(R.id.task_add_friends);
+
 
 // time and date picker activity
         mTime.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +112,14 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
             public void onClick(View v) {
                 DialogFragment newDateFragment = new DatePickerFragment();
                 newDateFragment.show(getSupportFragmentManager(), "datePicker");
+
+            }
+        });
+
+        mAddFriends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NewTaskActivity.this, AllFriendsActivity.class));
 
             }
         });
@@ -224,4 +235,6 @@ public class NewTaskActivity extends hippo.app.android.BaseActivity implements D
         mDatabase.updateChildren(childUpdates);
     }
     // [END write_fan_out]
+
+
 }

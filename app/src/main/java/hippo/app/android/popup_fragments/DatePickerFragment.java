@@ -1,4 +1,4 @@
-package hippo.app.android.dialog_fragments;
+package hippo.app.android.popup_fragments;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;

@@ -65,7 +65,7 @@ public class MainActivity extends BaseActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        // Button launches NewTaskActivity
+        // Button launches CategoryActivity
         findViewById(R.id.fab_new_task).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,13 +92,13 @@ public class MainActivity extends BaseActivity {
             return true;
         }
         if (i == R.id.test_add_friends) {
-            startActivity(new Intent(this,addFriendsActivity.class));
+            startActivity(new Intent(this,AddFriendsActivity.class));
             finish();
             return true;
         }
 
         if (i == R.id.test_show_friends) {
-            startActivity(new Intent(this,allFriendsActivity.class));
+            startActivity(new Intent(this,AllFriendsActivity.class));
             finish();
             return true;
         }

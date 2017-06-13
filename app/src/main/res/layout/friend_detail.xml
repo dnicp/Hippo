@@ -29,6 +29,7 @@
         android:layout_marginTop="5dp"
         android:background="@color/cardview_dark_background" />
         />
+
     <TextView
         android:id="@+id/friend_givenname"
         android:layout_width="wrap_content"

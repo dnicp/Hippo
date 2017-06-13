@@ -23,9 +23,4 @@ public class FriendViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public void bindToFriend(Friend friend) {
-        surnameView.setText(friend.surname);
-        givennameView.setText(friend.givenname);
-
-    }
 }
