@@ -81,7 +81,7 @@ public class allFriendsActivity extends BaseActivity
         // [START recent_tasks_query]
         // Last 100 tasks, these are automatically the 100 most recent
         // due to sorting by push() keys
-        Query friendQuery = databaseReference.child("user-friends").limitToFirst(1);
+        Query friendQuery = databaseReference.child("user-friends").limitToFirst(100);
         // [END recent_tasks_query]
 
         return friendQuery;

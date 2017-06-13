@@ -138,7 +138,7 @@ public class addFriendsActivity extends BaseActivity {
         Friend friend = new Friend(userId, username, surname,givenname);
         Map<String, Object> postValues = friend.toMap();
         Map<String, Object> childUpdates = new HashMap<>();
-        childUpdates.put("/user-friends/" + userId + "/" + key, postValues);
+        childUpdates.put("/user-friends/" + key, postValues);
 
         mDatabase.updateChildren(childUpdates);
     }
