@@ -7,13 +7,11 @@ import android.widget.TextView;
 
 import hippo.app.android.models.Task;
 
-import static hippo.app.android.R.drawable.ic_lightsoff;
-
 
 public class TaskViewHolder extends RecyclerView.ViewHolder {
 
     public TextView authorView;
-    public ImageView starView;
+    public ImageView poolingView;
     public TextView numPoolingView;
     public TextView locationView;
     public TextView timeView;
@@ -26,8 +24,8 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         authorView = (TextView) itemView.findViewById(R.id.task_author);
-        starView = (ImageView) itemView.findViewById(R.id.star);
-        numPoolingView = (TextView) itemView.findViewById(R.id.task_num_stars);
+        poolingView = (ImageView) itemView.findViewById(R.id.pooling);
+        numPoolingView = (TextView) itemView.findViewById(R.id.task_num_pooling);
         locationView = (TextView) itemView.findViewById(R.id.task_location_comment);
         timeView = (TextView) itemView.findViewById(R.id.task_time_comment);
         dateView = (TextView) itemView.findViewById(R.id.task_date_comment);
@@ -36,13 +34,13 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public void bindToTask(Task task, View.OnClickListener starClickListener) {
+    public void bindToTask(Task task, View.OnClickListener poolingClickListener) {
         authorView.setText(task.author);
-        numPoolingView.setText(String.valueOf(task.starCount));
+        numPoolingView.setText(String.valueOf(task.poolingCount));
         timeView.setText(task.time);
         dateView.setText(task.date);
         locationView.setText(task.location);
-        starView.setOnClickListener(starClickListener);
+        poolingView.setOnClickListener(poolingClickListener);
 
     }
 }

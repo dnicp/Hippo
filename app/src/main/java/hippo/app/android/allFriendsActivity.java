@@ -67,7 +67,7 @@ public class allFriendsActivity extends BaseActivity
 //        hippo.app.android.FriendViewHolder.bind(model, new View.OnClickListener() {
 //
 //            @Override
-//            public void onClick(View starView) {
+//            public void onClick(View poolingView) {
 //                // Need to write to both places the task is stored
 //                DatabaseReference globalTaskRef = mDatabase.child("tasks").child(taskRef.getKey());
 //                DatabaseReference userTaskRef = mDatabase.child("user-tasks").child(model.uid).child(taskRef.getKey());

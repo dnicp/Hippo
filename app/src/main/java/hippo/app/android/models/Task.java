@@ -17,13 +17,10 @@ public class Task {
     public String location;
     public String date;
     public String time;
-    // to implement
-    public String weekday;
-    // to implement
-    public int starCount;
+    public int poolingCount;
     public int minPooling;
 
-    public Map<String, Boolean> stars = new HashMap<>();
+    public Map<String, Boolean> poolings = new HashMap<>();
 
 
     public Task() {
@@ -50,9 +47,9 @@ public class Task {
         result.put("author", author);
         result.put("category", category);
         result.put("description", description);
-        result.put("starCount", starCount);
+        result.put("poolingCount", poolingCount);
         result.put("minPooling", minPooling);
-        result.put("stars", stars);
+        result.put("poolings", poolings);
         result.put("location", location);
         result.put("date", date);
         result.put("time", time);

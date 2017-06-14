@@ -25,6 +25,8 @@ import hippo.app.android.TaskDetailActivity;
 import hippo.app.android.TaskViewHolder;
 import hippo.app.android.models.Task;
 
+
+
 public class DashboardFragment extends Fragment {
 
     public DashboardFragment() {}
@@ -88,7 +90,7 @@ public class DashboardFragment extends Fragment {
 
                 // do something here to show lightson/off starts
 
-                int vStartCount = model.starCount;
+                int vStartCount = model.poolingCount;
                 int vMinPooling = model.minPooling;
                 if(vStartCount >= vMinPooling){
                     viewHolder.lightsOnOffView.setImageResource(R.drawable.ic_lightson);
@@ -115,10 +117,10 @@ public class DashboardFragment extends Fragment {
                 });
 
                 // Determine if the current user has liked this task and set UI accordingly
-                if (model.stars.containsKey(getUid())) {
-                    viewHolder.starView.setImageResource(R.drawable.ic_in);
+                if (model.poolings.containsKey(getUid())) {
+                    viewHolder.poolingView.setImageResource(R.drawable.ic_in);
                 } else {
-                    viewHolder.starView.setImageResource(R.drawable.ic_notin);
+                    viewHolder.poolingView.setImageResource(R.drawable.ic_notin);
                 }
 
                 // Bind Task to ViewHolder, setting OnClickListener for the star button
@@ -149,14 +151,14 @@ public class DashboardFragment extends Fragment {
                     return Transaction.success(mutableData);
                 }
 
-                if (p.stars.containsKey(getUid())) {
-                    // Unstar the task and remove self from stars
-                    p.starCount = p.starCount - 1;
-                    p.stars.remove(getUid());
+                if (p.poolings.containsKey(getUid())) {
+                    // Unstar the task and remove self from poolings
+                    p.poolingCount = p.poolingCount - 1;
+                    p.poolings.remove(getUid());
                 } else {
-                    // Star the task and add self to stars
-                    p.starCount = p.starCount + 1;
-                    p.stars.put(getUid(), true);
+                    // Star the task and add self to poolings
+                    p.poolingCount = p.poolingCount + 1;
+                    p.poolings.put(getUid(), true);
                 }
 
                 // Set value and report transaction success
