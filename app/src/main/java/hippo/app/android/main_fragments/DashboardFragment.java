@@ -44,7 +44,6 @@ public class DashboardFragment extends Fragment {
 
     // [START define_database_reference]
     private DatabaseReference mDatabase;
-    // [END define_database_reference]
 
     private FirebaseRecyclerAdapter<Task, TaskViewHolder> mAdapter;
     private RecyclerView mRecycler;
@@ -87,7 +86,7 @@ public class DashboardFragment extends Fragment {
             protected void populateViewHolder(final TaskViewHolder viewHolder, final Task model, final int position) {
                 final DatabaseReference taskRef = getRef(position);
 
-// do something here to show lightson/off starts
+                // do something here to show lightson/off starts
 
                 int vStartCount = model.starCount;
                 int vMinPooling = model.minPooling;
@@ -97,15 +96,19 @@ public class DashboardFragment extends Fragment {
                     viewHolder.lightsOnOffView.setImageResource(R.drawable.ic_lightsoff);
                 }
 
-// do something here to show lightson/off finish
+                // do something here to show lightson/off finish
+
+
+                final String taskKey = taskRef.getKey();
 
                 // Set click listener for the whole task view
-                final String taskKey = taskRef.getKey();
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         // Launch TaskDetailActivity
                         Intent intent = new Intent(getActivity(), TaskDetailActivity.class);
+
+                        // sending bundle to TaskDetailActivity
                         intent.putExtra(TaskDetailActivity.EXTRA_TASK_KEY, taskKey);
                         startActivity(intent);
                     }

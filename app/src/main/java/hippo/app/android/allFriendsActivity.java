@@ -22,7 +22,7 @@ public class allFriendsActivity extends BaseActivity
 
 
     private DatabaseReference mFriendReference = FirebaseDatabase.getInstance().getReference();
-
+    private RecyclerView mFriendRecycler;
 
 
 
@@ -32,7 +32,7 @@ public class allFriendsActivity extends BaseActivity
         setContentView(R.layout.allfriends_layout);
 // Initialize DB
         FirebaseRecyclerAdapter<Friend, hippo.app.android.FriendViewHolder> mAdapter;
-        RecyclerView mFriendRecycler = (RecyclerView) findViewById(R.id.friends_list);
+
         mFriendReference = FirebaseDatabase.getInstance().getReference();
 
 
@@ -43,8 +43,6 @@ public class allFriendsActivity extends BaseActivity
         //set layout manager
         mFriendRecycler.setLayoutManager(new LinearLayoutManager(this));
 
-        // Set up FirebaseRecyclerAdapter with the Query
-        // Test Query
         Query friendQuery = getQuery(mFriendReference);
 
 
@@ -60,19 +58,35 @@ public class allFriendsActivity extends BaseActivity
                                            int position) {
                 friendViewHolder.surnameView.setText(friend.surname);
                 friendViewHolder.givennameView.setText(friend.givenname);
+
             }
 
         };
+
+//        // Bind Task to ViewHolder, setting OnClickListener for the star button
+//        hippo.app.android.FriendViewHolder.bind(model, new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View starView) {
+//                // Need to write to both places the task is stored
+//                DatabaseReference globalTaskRef = mDatabase.child("tasks").child(taskRef.getKey());
+//                DatabaseReference userTaskRef = mDatabase.child("user-tasks").child(model.uid).child(taskRef.getKey());
+//
+//                // Run two transactions
+//                onStarClicked(globalTaskRef);
+//                onStarClicked(userTaskRef);
+//            }
+//        });
+
         mFriendRecycler.setAdapter(mAdapter);
 
     }
 
     public Query getQuery(DatabaseReference databaseReference) {
-        // [START recent_tasks_query]
-        // Last 100 tasks, these are automatically the 100 most recent
-        // due to sorting by push() keys
+
+
         Query friendQuery = databaseReference.child("user-friends").limitToFirst(100);
-        // [END recent_tasks_query]
+
 
         return friendQuery;
     }

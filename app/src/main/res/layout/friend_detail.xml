@@ -37,5 +37,11 @@
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         tools:text="Givenname" />
+    <ImageView
+        android:id="@+id/green_tick"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_greentick" />
 
 </LinearLayout>
