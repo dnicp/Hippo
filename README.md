@@ -1,6 +1,8 @@
 Hippo Suburb Prototype
 ===================================
 
+This prototype is for commercial demo and is not a release nor is for testing purpose. 
+
 Pre-requisites
 --------------
 
