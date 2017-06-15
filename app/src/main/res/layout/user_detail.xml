@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/friend_invite_linearview"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/task_author_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_account_circle_40" />
+
+    <TextView
+        android:id="@+id/friend_surname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        tools:text="Surname" />
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/cardview_dark_background" />
+        />
+
+    <TextView
+        android:id="@+id/friend_givenname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        tools:text="Givenname" />
+    <ImageView
+        android:id="@+id/green_tick"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_greentick" />
+
+</LinearLayout>

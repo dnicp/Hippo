@@ -1,8 +1,5 @@
-ViewPager Sample App
+Hippo Suburb Prototype
 ===================================
-
-This app displays a ViewPager with the name of a day of the week on each page.
-Used in a Udacity course in the Beginning Android Nanodegree.
 
 Pre-requisites
 --------------
@@ -14,17 +11,9 @@ Pre-requisites
 Getting Started
 ---------------
 
-This sample uses the Gradle build system. To build this project, use the
+This prototype uses the Gradle build system. To build this project, use the
 "gradlew build" command or use "Import Project" in Android Studio.
 
-Support
--------
-
-- Google+ Community: https://plus.google.com/communities/105153134372062985968
-- Stack Overflow: http://stackoverflow.com/questions/tagged/android
-
-Patches are encouraged, and may be submitted by forking this project and
-submitting a pull request through GitHub. Please see CONTRIBUTING.md for more details.
 
 License
 -------
